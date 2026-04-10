@@ -1,0 +1,80 @@
+# ============================================================
+# Viora App - Root .gitignore (Monorepo)
+# Covers: mobile/ (Flutter) + backend/ (FastAPI) + ml
+# ============================================================
+
+# ==================== Flutter (mobile/) ====================
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/.pub-cache/
+mobile/.pub/
+mobile/build/
+mobile/*.iml
+build/
+
+# ==================== Python (backend/) ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+dist/
+*.egg
+.pytest_cache/
+
+# ==================== Databases ====================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==================== Uploaded Files ====================
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# ==================== ML Models & Large Data ====================
+# Exclude viorenet (separate experimental environment)
+ml/viorenet/
+
+# Models: all exceed GitHub 100MB limit → upload to Google Drive
+ml/viora-ner/models/
+ml/models/
+
+# Datasets → upload to Google Drive
+ml/viora-ner/data/processed/
+ml/viora-ner/data/raw/
+ml/viora-ner/data/cache/
+
+# Keep taxonomy & gazetteers (small, essential for O*NET matching)
+
+# ML data archive (download separately — see setup_ml_data.py)
+viora_ml_data.zip
+# ==================== Environment & Secrets ====================
+.env
+.env.local
+.env.production
+!backend/.env.example
+
+# ==================== IDE ====================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==================== Logs ====================
+*.log
+
+# ==================== Generated Localization ====================
+mobile/.dart_tool/flutter_gen/

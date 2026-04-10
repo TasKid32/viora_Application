@@ -1,0 +1,566 @@
+{
+  "@@locale": "en",
+
+  "appName": "viora",
+  "appTagline": "Together, we shape your vision.",
+  "appDeveloper": "Developed by Viora Team - Al-Jouf University @2026",
+  "getStarted": "Get Started",
+
+  "welcomeBack": "Welcome back",
+  "signInToContinue": "Sign in to continue",
+  "email": "Email",
+  "emailHint": "you@example.com",
+  "password": "Password",
+  "signIn": "Sign In",
+  "dontHaveAccount": "Don't have an account? ",
+  "signUp": "Sign Up",
+  "pleaseEnterEmail": "Please enter your email",
+  "pleaseEnterValidEmail": "Please enter a valid email",
+  "pleaseEnterPassword": "Please enter your password",
+  "passwordMinLength": "Password must be at least 6 characters",
+
+  "joinViora": "Join viora",
+  "startCareerJourney": "Start your career journey today",
+  "fullName": "Full Name",
+  "fullNameHint": "Tasneem AlNashmi",
+  "confirmPassword": "Confirm Password",
+  "createAccount": "Create Account",
+  "alreadyHaveAccount": "Already have an account? ",
+  "logIn": "Log In",
+  "pleaseEnterName": "Please enter your name",
+  "pleaseConfirmPassword": "Please confirm your password",
+  "passwordsDoNotMatch": "Passwords do not match",
+
+  "forgotPasswordTitle": "Forgot Password?",
+  "forgotPasswordDescription": "Don't worry! Enter your email address and we'll send you a link to reset your password.",
+  "emailAddress": "Email Address",
+  "enterYourEmail": "Enter your email",
+  "sendResetLink": "Send Reset Link",
+  "backToSignIn": "Back to Sign In",
+  "checkYourEmail": "Check Your Email",
+  "resetLinkSent": "We've sent a password reset link to:",
+  "didntReceiveEmail": "Didn't receive the email?",
+  "checkSpamOrRetry": "Check your spam folder or try again",
+  "resendEmail": "Resend Email",
+  "resetLinkSentSuccess": "Password reset link sent successfully!",
+  "failedToSendResetLink": "Failed to send reset link: {error}",
+  "@failedToSendResetLink": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+
+  "hello": "Hello, {name} ",
+  "@hello": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "readyToGrow": "Ready to grow your skills today?",
+  "yourProgress": "Your Progress",
+  "retry": "Retry",
+  "skillAnalysis": "Skill Analysis",
+  "careerPath": "Career Path",
+  "training": "Training",
+  "smartAssistant": "Smart Assistant",
+
+  "myCourses": "My Courses",
+  "coursesCount": "{count} courses",
+  "@coursesCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "searchCourses": "Search courses...",
+  "all": "All",
+  "inProgress": "In Progress",
+  "completed": "Completed",
+  "failedToLoadCourses": "Failed to load courses",
+  "unknownError": "Unknown error",
+  "noCoursesFound": "No courses found",
+  "addFirstCourse": "Add your first course to get started",
+  "continueLearning": "Continue Learning",
+  "edit": "Edit",
+  "delete": "Delete",
+  "addNewCourse": "Add New Course",
+  "courseTitle": "Course Title",
+  "category": "Category",
+  "platform": "Platform",
+  "cancel": "Cancel",
+  "add": "Add",
+  "updateProgress": "Update Progress",
+  "completionPercent": "Completion (%)",
+  "update": "Update",
+  "deleteCourse": "Delete Course",
+  "deleteCourseConfirmation": "Are you sure you want to delete \"{title}\"?",
+  "@deleteCourseConfirmation": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+
+  "failedToLoadCourse": "Failed to load course",
+  "courseNotFound": "Course not found",
+  "enrolled": "Enrolled",
+  "notEnrolled": "Not enrolled",
+  "courseProgress": "Course Progress",
+  "courseDetails": "Course Details",
+  "title": "Title",
+  "status": "Status",
+  "markAsCompleted": "Mark as Completed",
+  "notStarted": "Not Started",
+
+  "uploadCV": "Upload Your CV",
+  "uploadCVDesc": "Upload your CV to analyze your skills",
+  "selectFile": "Select File",
+  "uploadAndAnalyze": "Upload & Analyze",
+  "analyzing": "Analyzing...",
+  "analysisComplete": "Analysis Complete",
+  "yourSkills": "Your Skills",
+  "generateRoadmap": "Generate Roadmap",
+  "noSkillsFound": "No skills found",
+  "pleaseUploadCV": "Please upload your CV first",
+  "analysisInProgress": "Analysis in progress...",
+  "pleaseWait": "Please wait while we analyze your CV",
+  "skillsFound": "{count} skills found",
+  "@skillsFound": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "manualSkillEntry": "Or enter skills manually",
+  "enterSkill": "Enter a skill",
+  "addSkill": "Add Skill",
+  "submitSkills": "Submit Skills",
+
+  "trackYourProgress": "Your Progress",
+  "trackLearningJourney": "Track your learning journey",
+  "skillGrowth": "Skill Growth",
+  "weeklyActivity": "Weekly Activity",
+  "noActivityData": "No activity data available",
+  "completedCourses": "Completed Courses",
+  "noCompletedCourses": "No completed courses yet",
+
+  "notifications": "Notifications",
+  "newNotificationsCount": "{count} new notifications",
+  "@newNotificationsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "markAllRead": "Mark all read",
+  "noNotificationsYet": "No notifications yet",
+  "notificationsEmptyDesc": "You'll see notifications here when you have updates",
+  "notificationDeleted": "Notification deleted",
+  "failedToLoadNotifications": "Failed to load notifications",
+  "failedToMarkAsRead": "Failed to mark as read",
+  "failedToDeleteNotification": "Failed to delete notification",
+  "allMarkedAsRead": "All notifications marked as read",
+  "failedToMarkAllRead": "Failed to mark all as read",
+  "justNow": "Just now",
+  "minutesAgo": "{count} minutes ago",
+  "@minutesAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "hoursAgo": "{count} hours ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "yesterday": "Yesterday",
+  "daysAgo": "{count} days ago",
+  "@daysAgo": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unreadNotifications": "You have {count} unread notifications",
+  "@unreadNotifications": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "stayUpdated": "Stay updated with your progress",
+
+  "settings": "Settings",
+  "manageAccount": "Manage your account",
+  "editProfile": "Edit Profile",
+  "updateYourInfo": "Update your information",
+  "notificationSettings": "Notifications",
+  "manageAlerts": "Manage your alerts",
+  "privacySecurity": "Privacy & Security",
+  "keepDataSafe": "Keep your data safe",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "helpSupport": "Help & Support",
+  "getAssistance": "Get assistance",
+  "loading": "Loading...",
+  "failedToLoadProfile": "Failed to load profile",
+
+  "phone": "Phone",
+  "bio": "Bio",
+  "saveChanges": "Save Changes",
+  "profileUpdatedSuccess": "Profile updated successfully!",
+  "failedToUpdateProfile": "Failed to update profile: {error}",
+  "@failedToUpdateProfile": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+
+  "changePassword": "Change Password",
+  "passwordMinLength8": "Your password must be at least 8 characters long",
+  "currentPassword": "Current Password",
+  "enterCurrentPassword": "Enter current password",
+  "newPassword": "New Password",
+  "enterNewPassword": "Enter new password",
+  "confirmNewPassword": "Confirm New Password",
+  "confirmNewPasswordHint": "Confirm new password",
+  "pleaseEnterCurrentPassword": "Please enter your current password",
+  "pleaseEnterNewPassword": "Please enter a new password",
+  "passwordMin8Chars": "Password must be at least 8 characters",
+  "newPasswordMustDiffer": "New password must be different from current",
+  "pleaseConfirmNewPassword": "Please confirm your new password",
+  "passwordChangedSuccess": "Password changed successfully!",
+  "failedToChangePassword": "Failed to change password: {error}",
+  "@failedToChangePassword": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "weak": "Weak",
+  "fair": "Fair",
+  "good": "Good",
+  "strong": "Strong",
+  "atLeast8Chars": "At least 8 characters",
+  "containsUppercase": "Contains uppercase letter",
+  "containsLowercase": "Contains lowercase letter",
+  "containsNumber": "Contains number",
+
+  "selectLanguage": "Select Language",
+  "languageUpdatedSuccess": "Language updated successfully",
+
+  "notificationSettingsTitle": "Notification Settings",
+  "general": "General",
+  "pushNotifications": "Push Notifications",
+  "receivePushNotifications": "Receive push notifications",
+  "emailNotifications": "Email Notifications",
+  "receiveEmailUpdates": "Receive email updates",
+  "notificationTypes": "Notification Types",
+  "courseUpdates": "Course Updates",
+  "newCoursesContent": "New courses and content",
+  "progressReports": "Progress Reports",
+  "weeklyProgressSummary": "Weekly progress summary",
+  "achievements": "Achievements",
+  "badgesAndRewards": "Badges and rewards",
+  "recommendations": "Recommendations",
+  "personalizedSuggestions": "Personalized suggestions",
+
+  "security": "Security",
+  "updateYourPassword": "Update your password",
+  "twoFactorAuth": "Two-Factor Authentication",
+  "extraSecurityLayer": "Extra security layer",
+  "biometricLogin": "Biometric Login",
+  "useFingerprintOrFace": "Use fingerprint or face",
+  "privacy": "Privacy",
+  "profileVisibility": "Profile Visibility",
+  "whoCanSeeProfile": "Who can see your profile",
+  "profileVisibilityComingSoon": "Profile visibility settings coming soon.",
+  "downloadMyData": "Download My Data",
+  "getCopyOfData": "Get a copy of your data",
+  "dataDownloadComingSoon": "Data download feature coming soon.",
+  "account": "Account",
+  "logout": "Logout",
+  "signOutOfAccount": "Sign out of your account",
+  "logoutConfirmation": "Are you sure you want to logout?",
+  "deleteAccount": "Delete Account",
+  "permanentlyDeleteAccount": "Permanently delete account",
+  "deleteAccountWarning": "This action cannot be undone. All your data will be permanently deleted.",
+  "accountDeletionNotAvailable": "Account deletion is not yet available.",
+
+  "getHelp": "Get Help",
+  "faqs": "FAQs",
+  "frequentlyAskedQuestions": "Frequently asked questions",
+  "liveChat": "Live Chat",
+  "chatWithSupport": "Chat with support team",
+  "emailSupport": "Email Support",
+  "resources": "Resources",
+  "videoTutorials": "Video Tutorials",
+  "learnHowToUse": "Learn how to use Viora",
+  "userGuide": "User Guide",
+  "completeDocumentation": "Complete documentation",
+  "about": "About",
+  "aboutViora": "About Viora",
+  "versionInfo": "Version 1.0.0",
+  "termsOfService": "Terms of Service",
+  "readOurTerms": "Read our terms",
+  "privacyPolicy": "Privacy Policy",
+  "howWeProtectData": "How we protect your data",
+  "comingSoon": "{feature} coming soon.",
+  "@comingSoon": {
+    "placeholders": {
+      "feature": { "type": "String" }
+    }
+  },
+
+  "aiAssistant": "AI Assistant",
+  "askMeAnything": "Ask me anything about your career...",
+  "typeMessage": "Type your message...",
+  "errorNetwork": "Network error occurred",
+  "errorServer": "Server error occurred",
+  "errorUnauthorized": "Session expired. Please login again",
+  "errorTimeout": "Request timed out",
+  "errorUnknown": "An unexpected error occurred",
+  "languageUpdated": "Language updated successfully",
+
+  "navHome": "Home",
+  "navProgress": "Progress",
+  "navAssistant": "Assistant",
+  "navProfile": "Profile",
+
+  "smartAssistantTitle": "Smart Assistant",
+  "alwaysHereToHelp": "Always here to help",
+  "quickActions": "Quick actions:",
+  "analyzeCV": "Analyze CV",
+  "helpAnalyzeCV": "Help me analyze my CV",
+  "careerAdvice": "Career Advice",
+  "giveCareerAdvice": "Give me career advice based on my skills",
+  "findCourses": "Find Courses",
+  "recommendCourses": "Recommend courses to improve my skills",
+  "hiHowCanIHelp": "Hi! How can I assist you today?",
+  "askAboutCareer": "Ask me anything about your career development",
+
+  "failedToLoadCourseDetails": "Failed to load course",
+  "courseNotFoundMsg": "Course not found",
+  "enrolledLabel": "Enrolled",
+  "completedLabel": "Completed",
+  "notEnrolledLabel": "Not enrolled",
+  "courseProgressTitle": "Course Progress",
+  "courseDetailsTitle": "Course Details",
+  "titleLabel": "Title",
+  "categoryLabel": "Category",
+  "platformLabel": "Platform",
+  "statusLabel": "Status",
+  "markAsCompletedBtn": "Mark as Completed",
+  "deleteCourseBtn": "Delete Course",
+  "deleteBtn": "Delete",
+  "notStartedStatus": "Not Started",
+  "inProgressStatus": "In Progress",
+  "completedStatus": "Completed",
+  "areYouSureDeleteCourse": "Are you sure you want to delete \"{title}\"?",
+  "@areYouSureDeleteCourse": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+
+  "failedToLoadRoadmap": "Failed to load roadmap",
+  "noRoadmapAvailable": "No roadmap available",
+  "completeSkillsFirst": "Complete your skills analysis first",
+  "learningRoadmap": "Learning Roadmap",
+  "personalizedPath": "Your personalized learning path",
+  "overallProgress": "Overall Progress",
+  "phasesProgress": "{completed} of {total} phases",
+  "@phasesProgress": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "learningPhases": "Learning Phases",
+  "duration": "Duration: {value}",
+  "@duration": {
+    "placeholders": {
+      "value": { "type": "String" }
+    }
+  },
+  "topicsCount": "{count} topics",
+  "@topicsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "recommendedResources": "Recommended Resources:",
+
+  "skillAnalysisTitle": "Skill Analysis",
+  "orText": "Or",
+  "uploadResume": "Upload Resume",
+  "resumeSelected": "Resume Selected",
+  "pdfDocDocx": "PDF, DOC, or DOCX",
+  "removeFile": "Remove",
+  "orTypeSkills": "Or type your skills",
+  "skillsHintText": "e.g., JavaScript, React, TypeScript...",
+  "analyzeNow": "Analyze Now",
+  "errorSelectingFile": "Error selecting file: {error}",
+  "@errorSelectingFile": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "pleaseUploadOrEnter": "Please upload a resume or enter your skills manually",
+  "analysisCompletedSuccess": "Analysis completed successfully!",
+  "analyzingResume": "Analyzing your resume...",
+  "mayTakeMoments": "This may take a few moments",
+  "strongSkills": "Strong Skills",
+  "skillsToDevelop": "Skills to Develop",
+  "predictedCareer": "Predicted Career",
+  "levelLabel": "📊 Level: {level}",
+  "@levelLabel": {
+    "placeholders": {
+      "level": { "type": "String" }
+    }
+  },
+  "readyToCreatePath": "Ready to Create Your Learning Path?",
+  "generatePersonalizedRoadmap": "Generate a personalized roadmap based on your skills analysis",
+  "generateLearningRoadmap": "Generate Learning Roadmap →",
+  "roadmapGenerated": "🎉 Roadmap generated! Check Progress tab",
+  "analyzingText": "Analyzing...",
+  "careerDirection": "Career Direction",
+  "jobOpportunities": "Job Opportunities",
+  "basedOnProfile": "Based on your profile:",
+  "recommendationsTitle": "Recommendations",
+
+  "languageChangedTo": "Language changed to {name}",
+  "@languageChangedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "failedToUpdateLanguage": "Failed to update language: {error}",
+  "@failedToUpdateLanguage": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "selectLanguageTitle": "Select Language",
+  "languageTitle": "Language",
+
+  "dayMon": "Mon",
+  "dayTue": "Tue",
+  "dayWed": "Wed",
+  "dayThu": "Thu",
+  "dayFri": "Fri",
+  "daySat": "Sat",
+  "daySun": "Sun",
+
+  "startJourneyTitle": "Start Your Career Journey!",
+  "startJourneyDesc": "Upload your CV to discover your skills and get a personalized learning path.",
+  "analyzeMyCV": "Analyze My CV →",
+  "roadmapReadyTitle": "Your Learning Path is Ready!",
+  "roadmapReadyDesc": "View your personalized roadmap and start learning.",
+  "viewRoadmap": "View Roadmap →",
+  "newAnalysis": "New Analysis",
+  "roadmapStepsProgress": "{completed}/{total} steps",
+  "coursesProgress": "{completed}/{total} courses",
+  "analyzeFirst": "Analyze your CV first to get a personalized learning path.",
+  "goToAnalysis": "Go to Analysis",
+  "autoGeneratingRoadmap": "Generating your learning path...",
+
+  "navAnalysis": "Analysis Skills",
+  "navRoadmap": "Roadmap",
+  "navAdvisor": "Advisor",
+
+  "resumeQuality": "Resume Quality",
+  "excellent": "Excellent",
+  "acceptable": "Acceptable",
+  "wordsCount": "{count} words",
+  "@wordsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "uploadingResume": "Uploading Your Resume...",
+  "extractingText": "Extracting Text...",
+  "aiSkillAnalysis": "Analyzing Skills with AI...",
+  "careerMatching": "Matching Career Database...",
+  "processing": "Processing...",
+  "uploadingDesc": "Securely uploading your CV to the server",
+  "extractingDesc": "Reading and extracting content from your document",
+  "analyzingDesc": "Our AI model is identifying your skills and experience",
+  "matchingDesc": "Comparing your profile with O*NET career standards",
+  "processingDesc": "Please wait while we process your resume",
+  "usuallyTakes": "Usually takes 30–60 seconds",
+  "uploadFile": "Upload File",
+  "extractText": "Extract Text",
+
+  "createLearningPath": "Create Learning Path",
+  "generatingPath": "Generating...",
+  "profilePhotoUpdated": "Profile photo updated ✅",
+  "failedUploadPhoto": "Failed to upload photo",
+  "showLess": "Show Less",
+  "couldNotOpenLink": "Could not open this link",
+  "showMoreResources": "Show {count} More Resources",
+  "@showMoreResources": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "showMore": "Show More",
+  "reanalysisWarningTitle": "Re-analyze CV?",
+  "reanalysisWarningBody": "This will archive your previous analysis and roadmap, and clear your chat history to focus on the new CV.",
+  "continueText": "Continue",
+  "languages": "Languages",
+  "strengths": "Strengths",
+  "fileTooLarge": "File too large ({size}MB). Maximum size is 10MB.",
+  "@fileTooLarge": {
+    "placeholders": {
+      "size": { "type": "String" }
+    }
+  },
+  "tapToSelectFile": "Tap to select a file",
+  "pdfDocxUpTo10": "PDF, DOCX — up to 10MB",
+  "removeFile": "Remove file",
+  "newChat": "New Chat",
+  "couldNotConnectAssistant": "Could not connect to assistant",
+  "videos": "Videos",
+  "courses": "Courses",
+  "phaseCompleted": "Phase Completed!",
+  "of_": "of",
+  "resourcesCompleted": "completed",
+  "resourcesTotal": "resources",
+  "articles": "Articles",
+  "phases": "Phases",
+  "techSkills": "Technical Tools",
+  "hardSkills": "Core Competencies",
+  "softSkills": "Professional Skills",
+
+  "errorArabicCV": "Please upload an English CV. Arabic CVs are not supported yet.",
+  "errorInvalidCV": "The uploaded file doesn't appear to be a valid CV. Please check and try again.",
+  "errorImagePDF": "This PDF is image-based (scanned). Please upload a text-based PDF or DOCX.",
+  "errorOldDocFormat": "Old .doc format is not supported. Please convert to .docx or .pdf.",
+  "errorUnsupportedFormat": "Unsupported file format. Please use PDF or DOCX.",
+  "errorQuotaExceeded": "Service temporarily unavailable due to high demand. Please try again later.",
+  "errorFileTooLarge": "File is too large. Maximum size is 10MB.",
+  "errorConnectionTimeout": "Connection timed out. Please check your internet connection.",
+  "errorNoConnection": "Could not connect to server. Please check your internet connection.",
+  "errorAnalysisTimeout": "Analysis took too long. Please try again.",
+  "errorGeneric": "An error occurred. Please try again.",
+
+  "phoneNumber": "Phone Number",
+  "bio": "Bio",
+  "bioHint": "Tell us about yourself...",
+  "memberSince": "Member since",
+  "profileUpdatedSuccess": "Profile updated successfully",
+  "email": "Email",
+
+  "topics": "Topics",
+  "yourJourney": "Your Journey",
+  "cvAnalyzed": "CV Analyzed",
+  "roadmapReady": "Roadmap Generated",
+  "learningStarted": "Learning in Progress",
+  "phaseNotFound": "Phase not found",
+
+  "showAllCount": "Show all ({count})",
+  "@showAllCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "appCopyright": "© 2025 Viora",
+  "appDescription": "AI-powered career development and skills analysis app"
+}

@@ -1,0 +1,410 @@
+{
+  "analysis": {
+    "analysis_id": "e4394f6a-c5b6-485a-bbda-c3678b8d3c05",
+    "user_profile": {
+      "predicted_job_title": "Lawyers",
+      "career_direction": "Represent clients in criminal and civil litigation and other legal proceedings, draw up legal documents, or manage or advise clients on legal transactions. May specialize in a single area or may pract",
+      "career_path_description": "Represent clients in criminal and civil litigation and other legal proceedings, draw up legal documents, or manage or advise clients on legal transactions. May specialize in a single area or may pract",
+      "extracted_skills": [
+        "Contract Negotiation & Drafting",
+        "Legal Research",
+        "Client Relationship Management",
+        "Alternative Dispute Resolution (ADR)",
+        "Intellectual Property Law",
+        "Trial Advocacy & Deposition",
+        "Corporate Compliance & Risk Management",
+        "Regulatory Compliance"
+      ],
+      "experience_level": "Senior",
+      "strong_skills": [
+        {
+          "name": "Regulatory Compliance",
+          "proficiency": 91,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Intellectual Property Law",
+          "proficiency": 91,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Trial Advocacy & Deposition",
+          "proficiency": 90,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Corporate Compliance & Risk Management",
+          "proficiency": 89,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Contract Negotiation & Drafting",
+          "proficiency": 88,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Legal Research",
+          "proficiency": 85,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Client Relationship Management",
+          "proficiency": 76,
+          "category": "technical",
+          "source": "ner"
+        },
+        {
+          "name": "Alternative Dispute Resolution (ADR)",
+          "proficiency": 75,
+          "category": "technical",
+          "source": "ner"
+        }
+      ]
+    },
+    "gap_analysis": {
+      "predicted_job": "Lawyers",
+      "experience_level": "Senior",
+      "missing_hard_skills": [],
+      "missing_soft_skills": [],
+      "missing_skills": [],
+      "missing_tech_skills": [
+        {
+          "skill": "Microsoft Access",
+          "priority": "High",
+          "category": "Data base user interface and query software",
+          "hot_technology": true,
+          "in_demand": false
+        },
+        {
+          "skill": "Abacus Data Systems AbacusLaw",
+          "priority": "Low",
+          "category": "Data base user interface and query software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "ADC Legal Systems Perfect Practice",
+          "priority": "Low",
+          "category": "Data base user interface and query software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "ADERANT Expert Matter Center",
+          "priority": "Low",
+          "category": "Data base user interface and query software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "Adobe Acrobat",
+          "priority": "High",
+          "category": "Document management software",
+          "hot_technology": true,
+          "in_demand": false
+        },
+        {
+          "skill": "AbacusNext HotDocs",
+          "priority": "Low",
+          "category": "Document management software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "Anacomp CaseLogistix",
+          "priority": "Low",
+          "category": "Document management software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "Best Case Solutions Best Case Bankruptcy",
+          "priority": "Low",
+          "category": "Document management software",
+          "hot_technology": false,
+          "in_demand": false
+        },
+        {
+          "skill": "Microsoft Project",
+          "priority": "High",
+          "category": "Project management software",
+          "hot_technology": true,
+          "in_demand": false
+        },
+        {
+          "skill": "Canyon Solutions Jcats",
+          "priority": "Low",
+          "category": "Project management software",
+          "hot_technology": false,
+          "in_demand": false
+        }
+      ]
+    },
+    "job_opportunities": [
+      "Judicial Law Clerks",
+      "Administrative Law Judges, Adjudicators, and Hearing Officers",
+      "Arbitrators, Mediators, and Conciliators",
+      "Judges, Magistrate Judges, and Magistrates",
+      "Paralegals and Legal Assistants"
+    ],
+    "strengths": [
+      {
+        "skill": "Regulatory Compliance",
+        "description": "Identified in CV with 91% confidence"
+      },
+      {
+        "skill": "Intellectual Property Law",
+        "description": "Identified in CV with 91% confidence"
+      },
+      {
+        "skill": "Trial Advocacy & Deposition",
+        "description": "Identified in CV with 90% confidence"
+      },
+      {
+        "skill": "Corporate Compliance & Risk Management",
+        "description": "Identified in CV with 89% confidence"
+      },
+      {
+        "skill": "Contract Negotiation & Drafting",
+        "description": "Identified in CV with 88% confidence"
+      }
+    ],
+    "recommendations": [
+      {
+        "type": "learn",
+        "skill": "Microsoft Access",
+        "priority": "High",
+        "target_job": "Lawyers"
+      },
+      {
+        "type": "learn",
+        "skill": "Abacus Data Systems AbacusLaw",
+        "priority": "Low",
+        "target_job": "Lawyers"
+      },
+      {
+        "type": "learn",
+        "skill": "ADC Legal Systems Perfect Practice",
+        "priority": "Low",
+        "target_job": "Lawyers"
+      }
+    ],
+    "cv_quality": {
+      "quality_score": 100,
+      "is_valid": true,
+      "sections_found": [
+        "experience",
+        "education",
+        "skills",
+        "contact"
+      ],
+      "sections_missing": [],
+      "warnings": [],
+      "word_count": 351
+    },
+    "processed_at": "2026-03-26T00:17:35.687426"
+  },
+  "roadmap": {
+    "roadmap_id": "01b6568e-e5b4-432a-84c8-2f7ac3b334e8",
+    "learning_roadmap": [
+      {
+        "phase": "Foundations",
+        "duration": "3 weeks",
+        "topics": [
+          "Data base user interface and query software",
+          "Document management software",
+          "Project management software"
+        ],
+        "priority": "High",
+        "resources": [
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "Learn Basic SQL in 15 Minutes | Business Intelligence For Beginners | SQL Tutorial For Beginners 1/3",
+            "url": "https://www.youtube.com/watch?v=kbKty5ZVKMY",
+            "thumbnail": "https://i.ytimg.com/vi/kbKty5ZVKMY/hqdefault.jpg",
+            "channel": "Adam Finer - Learn BI",
+            "duration": "17:40",
+            "description": "WANT MORE? GET MY FULL SQL COURSE HERE: https://geni.us/lbia_sql WATCH PART 2 HERE: ..."
+          },
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "MySQL vs Postgresql vs Microsoft SQL Server Management Tools | Which Option is Best?",
+            "url": "https://www.youtube.com/watch?v=Q7i6zxHVj2Q",
+            "thumbnail": "https://i.ytimg.com/vi/Q7i6zxHVj2Q/hqdefault.jpg",
+            "channel": "Alex The Analyst",
+            "duration": "16:05",
+            "description": "Take my Full SQL Course Here: https://bit.ly/3tqOipr There are a lot of different SQL Management Tool options to choose from, but ..."
+          },
+          {
+            "type": "course",
+            "platform": "Udemy",
+            "title": "Data base user interface and query software — Top Rated (Expert)",
+            "url": "https://www.udemy.com/courses/search/?q=Data+base+user+interface+and+query+software&sort=relevance&ratings=4.0&instructional_level=expert",
+            "thumbnail": null,
+            "instructor": "Top Instructors",
+            "rating": 4.5,
+            "num_reviews": null,
+            "price": "Paid (Discounts available)",
+            "duration": "Self-paced",
+            "level": "Expert",
+            "description": "Browse top-rated Data base user interface and query software courses on Udemy — filtered for Expert level."
+          },
+          {
+            "type": "course",
+            "platform": "Coursera",
+            "title": "Data base user interface and query software — Coursera (Advanced)",
+            "url": "https://www.coursera.org/search?query=Data+base+user+interface+and+query+software&productDifficultyLevel=advanced",
+            "thumbnail": null,
+            "instructor": "Google, IBM, Meta, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free to Audit",
+            "description": "Browse Data base user interface and query software courses, Professional Certificates, and Specializations — filtered for Advanced level."
+          },
+          {
+            "type": "course",
+            "platform": "edX",
+            "title": "Data base user interface and query software — edX (Advanced)",
+            "url": "https://www.edx.org/search?q=Data+base+user+interface+and+query+software&level=advanced",
+            "thumbnail": null,
+            "instructor": "MIT, Harvard, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free (Verified Certificate Available)",
+            "description": "Browse Data base user interface and query software courses, MicroMasters, and Professional Certificates — filtered for Advanced level."
+          },
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "This Simple File Management System Changed My Life!",
+            "url": "https://www.youtube.com/watch?v=MM-MPS57qKA",
+            "thumbnail": "https://i.ytimg.com/vi/MM-MPS57qKA/hqdefault.jpg",
+            "channel": "Jeff Su",
+            "duration": "9:27",
+            "description": "Grab my free Workspace Toolkit: ..."
+          },
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "Document management system project | Electronic document management system | Source Code &amp; Projects",
+            "url": "https://www.youtube.com/watch?v=rV411Eiy5Sk",
+            "thumbnail": "https://i.ytimg.com/vi/rV411Eiy5Sk/hqdefault.jpg",
+            "channel": "Mayuri K",
+            "duration": "5:28",
+            "description": "Welcome to our mayurik youtube channel! In this video, we're excited to showcase our latest project an efficient Document ..."
+          },
+          {
+            "type": "course",
+            "platform": "Udemy",
+            "title": "Document management software — Top Rated (Expert)",
+            "url": "https://www.udemy.com/courses/search/?q=Document+management+software&sort=relevance&ratings=4.0&instructional_level=expert",
+            "thumbnail": null,
+            "instructor": "Top Instructors",
+            "rating": 4.5,
+            "num_reviews": null,
+            "price": "Paid (Discounts available)",
+            "duration": "Self-paced",
+            "level": "Expert",
+            "description": "Browse top-rated Document management software courses on Udemy — filtered for Expert level."
+          },
+          {
+            "type": "course",
+            "platform": "Coursera",
+            "title": "Document management software — Coursera (Advanced)",
+            "url": "https://www.coursera.org/search?query=Document+management+software&productDifficultyLevel=advanced",
+            "thumbnail": null,
+            "instructor": "Google, IBM, Meta, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free to Audit",
+            "description": "Browse Document management software courses, Professional Certificates, and Specializations — filtered for Advanced level."
+          },
+          {
+            "type": "course",
+            "platform": "edX",
+            "title": "Document management software — edX (Advanced)",
+            "url": "https://www.edx.org/search?q=Document+management+software&level=advanced",
+            "thumbnail": null,
+            "instructor": "MIT, Harvard, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free (Verified Certificate Available)",
+            "description": "Browse Document management software courses, MicroMasters, and Professional Certificates — filtered for Advanced level."
+          },
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "Microsoft Project - Tutorial for Beginners in 14 MINUTES!  [ COMPLETE COURSE ]",
+            "url": "https://www.youtube.com/watch?v=ei5xUlksV7o",
+            "thumbnail": "https://i.ytimg.com/vi/ei5xUlksV7o/hqdefault.jpg",
+            "channel": "Skills Factory",
+            "duration": "14:37",
+            "description": "Start immediately with this full Microsoft Project tutorial course and own most of its features in just 14 quick minutes! Outstanding ..."
+          },
+          {
+            "type": "video",
+            "platform": "YouTube",
+            "title": "Learn Microsoft Project - Full Course Beginner to Master in 20 Minutes",
+            "url": "https://www.youtube.com/watch?v=gsh4Cj1KAGY",
+            "thumbnail": "https://i.ytimg.com/vi/gsh4Cj1KAGY/hqdefault.jpg",
+            "channel": "David McLachlan",
+            "duration": "19:46",
+            "description": "20 Million People use Microsoft Project from over 10000 Organizations. Go from beginner to master in this video on Microsoft ..."
+          },
+          {
+            "type": "course",
+            "platform": "Udemy",
+            "title": "Project management software — Top Rated (Expert)",
+            "url": "https://www.udemy.com/courses/search/?q=Project+management+software&sort=relevance&ratings=4.0&instructional_level=expert",
+            "thumbnail": null,
+            "instructor": "Top Instructors",
+            "rating": 4.5,
+            "num_reviews": null,
+            "price": "Paid (Discounts available)",
+            "duration": "Self-paced",
+            "level": "Expert",
+            "description": "Browse top-rated Project management software courses on Udemy — filtered for Expert level."
+          },
+          {
+            "type": "course",
+            "platform": "Coursera",
+            "title": "Project management software — Coursera (Advanced)",
+            "url": "https://www.coursera.org/search?query=Project+management+software&productDifficultyLevel=advanced",
+            "thumbnail": null,
+            "instructor": "Google, IBM, Meta, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free to Audit",
+            "description": "Browse Project management software courses, Professional Certificates, and Specializations — filtered for Advanced level."
+          },
+          {
+            "type": "course",
+            "platform": "edX",
+            "title": "Project management software — edX (Advanced)",
+            "url": "https://www.edx.org/search?q=Project+management+software&level=advanced",
+            "thumbnail": null,
+            "instructor": "MIT, Harvard, Top Universities",
+            "duration": "Self-paced",
+            "level": "Advanced",
+            "rating": null,
+            "price": "Free (Verified Certificate Available)",
+            "description": "Browse Project management software courses, MicroMasters, and Professional Certificates — filtered for Advanced level."
+          }
+        ]
+      }
+    ]
+  }
+}
