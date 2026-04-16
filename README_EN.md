@@ -98,7 +98,7 @@ viora_app/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/salman11169/Viora_app.git
+git clone https://github.com/TasKid32/viora_Application.git
 cd Viora_app
 ```
 
@@ -118,10 +118,6 @@ python -m venv venv
 # Activate the virtual environment
 # Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
-# Windows (CMD):
-venv\Scripts\activate.bat
-# macOS / Linux:
-source venv/bin/activate
 
 # Install required packages
 pip install -r requirements.txt
@@ -144,20 +140,6 @@ python setup_ml_data.py
 
 The script will automatically download the archive from Google Drive, extract it, and place all files in their correct locations.
 
-#### Method 2: Manual Download from Google Drive
-
-1. Download `viora_ml_data.zip` from the following link:
-   **[📥 Download ML Data from Google Drive](https://drive.google.com/file/d/1TA8BA82QIFu5vTQqhH1iUAUKe_ROpgap/view?usp=sharing)**
-2. Place the zip file in the **project root directory** (`Viora_app/`)
-3. Extract:
-
-```bash
-# Windows (PowerShell):
-Expand-Archive -Path viora_ml_data.zip -DestinationPath . -Force
-
-# macOS / Linux:
-unzip viora_ml_data.zip -d .
-```
 
 4. Verify these directories exist after extraction:
    - `ml/viora-ner/models/checkpoints/best_model/`
@@ -190,9 +172,7 @@ cd backend
 # Copy the example environment file
 # Windows:
 copy .env.example .env
-# macOS / Linux:
-cp .env.example .env
-```
+
 
 **Edit `.env`** and add your API keys:
 
@@ -265,8 +245,6 @@ For the app to communicate with the backend, **both devices must be on the same 
 ipconfig
 # Look for "IPv4 Address" under Wi-Fi adapter (e.g., 192.168.1.100)
 
-# macOS / Linux:
-ifconfig | grep "inet "
 ```
 
 ### Step 2: Set the API URL in Flutter

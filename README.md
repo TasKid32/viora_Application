@@ -101,7 +101,7 @@ viora_app/
 </div>
 
 ```bash
-git clone https://github.com/salman11169/Viora_app.git
+git clone https://github.com/TasKid32/viora_Application.git
 cd Viora_app
 ```
 
@@ -125,10 +125,6 @@ python -m venv venv
 # فعّل البيئة الافتراضية
 # Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
-# Windows (CMD):
-venv\Scripts\activate.bat
-# macOS / Linux:
-source venv/bin/activate
 
 # ثبّت المكتبات المطلوبة
 pip install -r requirements.txt
