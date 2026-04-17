@@ -84,6 +84,15 @@ async def update_profile(
     db.commit()
     db.refresh(user)
     
+  # ── NOTIFICATION: Profile Updated ────────────────────────────
+    from app.core.events import event_dispatcher, EVENT_PROFILE_UPDATED
+    event_dispatcher.dispatch(EVENT_PROFILE_UPDATED, {
+        "db": db,
+        "user_id": user.id,
+    })
+    db.commit()  # Commit notification
+
+
     return {
         "success": True,
         "message": "Profile updated",

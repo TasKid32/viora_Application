@@ -448,6 +448,18 @@ async def generate_roadmap(
     db.add(roadmap)
     db.commit()
     db.refresh(roadmap)
+    
+ # ── NOTIFICATION: Roadmap Generated ──────────────────────────
+    total_topics = sum(len(phase.get("topics", [])) for phase in full_roadmap)
+    from app.core.events import event_dispatcher, EVENT_ROADMAP_GENERATED
+    event_dispatcher.dispatch(EVENT_ROADMAP_GENERATED, {
+        "db": db,
+        "user_id": user_id,
+        "phase_count": len(full_roadmap),
+        "total_topics": total_topics,
+    })
+    db.commit()  # Commit notification
+
 
     return {
         "roadmap_id": roadmap.id,
@@ -579,6 +591,19 @@ async def toggle_resource_completion(
     roadmap.roadmap_data = roadmap_data
     flag_modified(roadmap, "roadmap_data")
     db.commit()
+
+
+ # ── NOTIFICATION: Phase Completed ────────────────────────────
+    if all_done:
+        from app.core.events import event_dispatcher, EVENT_ROADMAP_PHASE_COMPLETED
+        phase_name = phase.get("phase", "Learning Phase")
+        event_dispatcher.dispatch(EVENT_ROADMAP_PHASE_COMPLETED, {
+            "db": db,
+            "user_id": current_user.id,
+            "phase_name": phase_name,
+        })
+        db.commit()  # Commit notification
+
 
     return {
         "success": True,

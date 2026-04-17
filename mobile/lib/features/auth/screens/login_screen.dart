@@ -135,10 +135,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: Icons.email_outlined,
                         keyboardType: TextInputType.emailAddress,
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return l10n.pleaseEnterEmail;
-                          if (!v.contains('@'))
+                          }
+                          if (!v.contains('@')) {
                             return l10n.pleaseEnterValidEmail;
+                          }
                           return null;
                         },
                       ),
@@ -163,8 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return l10n.pleaseEnterPassword;
+                          }
                           if (v.length < 6) return l10n.passwordMinLength;
                           return null;
                         },

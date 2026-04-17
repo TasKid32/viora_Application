@@ -25,7 +25,46 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.notifications),
+        title: 
+        Text(AppLocalizations.of(context)!.notifications),
+
+ actions: [
+          // Mark all as read button
+          Consumer<NotificationProvider>(
+            builder: (context, provider, _) {
+              if (provider.unreadCount > 0) {
+                return IconButton(
+                  icon: const Icon(Icons.done_all),
+                  tooltip: 'Mark all as read',
+                  onPressed: () async {
+                    try {
+                      await provider.markAllAsRead();
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('All notifications marked as read'),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      }
+                    } catch (e) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Failed to mark all as read: $e'),
+                            backgroundColor: AppColors.error,
+                          ),
+                        );
+                      }
+                    }
+                  },
+                );
+              }
+              return const SizedBox.shrink();
+            },
+          ),
+        ],
+
       ),
       body: Selector<NotificationProvider, bool>(
         selector: (_, p) => p.loading,
@@ -123,7 +162,7 @@ class _NotificationTile extends StatelessWidget {
                     notification.message,
                     style: AppTextStyles.bodySmall
                         .copyWith(color: AppColors.textSecondary),
-                    maxLines: 2,
+                    maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 6),

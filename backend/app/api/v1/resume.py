@@ -327,6 +327,18 @@ async def analyze_resume(
         len(all_skills), len(missing_hard) + len(missing_soft),
     )
 
+ # ── NOTIFICATION: CV Analysis Completed ──────────────────────
+    from app.core.events import event_dispatcher, EVENT_CV_ANALYSIS_COMPLETED
+    event_dispatcher.dispatch(EVENT_CV_ANALYSIS_COMPLETED, {
+        "db": db,
+        "user_id": user_id,
+        "job_title": analysis.predicted_job_title,
+        "skills_found": len(all_skills),
+        "gaps_found": len(missing_hard) + len(missing_soft),
+    })
+    db.commit()  # Commit notification
+
+
     # B5 Fix: Delete the uploaded file after successful analysis
     try:
         if resume.file_path and os.path.exists(resume.file_path):
@@ -443,6 +455,18 @@ async def analyze_resume_stream(
                 "SSE analysis complete: id=%s, pipeline=v%s, hash=%s",
                 analysis.id, PIPELINE_VERSION, text_hash,
             )
+
+
+ # ── NOTIFICATION: CV Analysis Completed ──────────────────────
+            from app.core.events import event_dispatcher, EVENT_CV_ANALYSIS_COMPLETED
+            event_dispatcher.dispatch(EVENT_CV_ANALYSIS_COMPLETED, {
+                "db": db,
+                "user_id": user_id,
+                "job_title": analysis.predicted_job_title,
+                "skills_found": len(all_skills),
+                "gaps_found": len(missing_hard) + len(missing_soft),
+            })
+            db.commit()  # Commit notification
 
             # Cleanup file
             try:

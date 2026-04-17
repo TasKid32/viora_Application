@@ -7,15 +7,26 @@ class NotificationApi {
   final ApiClient _api;
   NotificationApi(this._api);
 
-  /// Load all notifications.
-  Future<List<AppNotification>> getNotifications() async {
+  /// Load all notifications with unread count.
+  Future<NotificationResponse> getNotifications() async {
     final response = await _api.get(Endpoints.notifications);
-    final list = response.data['notifications'] as List? ?? [];
-    return list.map((n) => AppNotification.fromJson(n as Map<String, dynamic>)).toList();
+    return NotificationResponse.fromJson(response.data);
   }
 
   /// Mark a notification as read.
   Future<void> markAsRead(String id) async {
     await _api.put(Endpoints.notificationRead(id));
   }
+
+/// Mark all notifications as read.
+  Future<void> markAllAsRead() async {
+    await _api.put(Endpoints.notificationReadAll);
+  }
+
+  /// Delete a notification.
+  Future<void> deleteNotification(String id) async {
+    await _api.delete(Endpoints.notificationDelete(id));
+  }
+
+
 }

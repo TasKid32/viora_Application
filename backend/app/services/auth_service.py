@@ -99,6 +99,16 @@ def register_user(db: Session, full_name: str, email: str, password: str, confir
     logger.info("User registered successfully: id=%s email=%s", new_user.id, email)
     return _create_token_pair(new_user)
 
+ # ── NOTIFICATION: Welcome new user ───────────────────────────
+    from app.core.events import event_dispatcher, EVENT_USER_REGISTERED
+    event_dispatcher.dispatch(EVENT_USER_REGISTERED, {
+        "db": db,
+        "user_id": new_user.id,
+        "full_name": full_name,
+    })
+    db.commit()  # Commit notification
+
+
 
 def login_user(db: Session, email: str, password: str) -> dict:
     """Authenticate a user and return tokens.

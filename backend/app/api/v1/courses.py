@@ -145,9 +145,19 @@ async def update_course(
     if course_data.platform is not None:
         course.platform = course_data.platform
     if course_data.completion is not None:
+        was_incomplete = course.completion < 100
         course.completion = course_data.completion
         if course_data.completion == 100 and course.completed_date is None:
             course.completed_date = datetime.now(timezone.utc)
+            
+            # ── NOTIFICATION: Course Completed ───────────────────────
+            if was_incomplete:  # Only notify on first completion
+                from app.core.events import event_dispatcher, EVENT_COURSE_COMPLETED
+                event_dispatcher.dispatch(EVENT_COURSE_COMPLETED, {
+                    "db": db,
+                    "user_id": current_user.id,
+                    "course_title": course.title,
+                })
     if course_data.completed_date is not None:
         course.completed_date = datetime.fromisoformat(course_data.completed_date)
 

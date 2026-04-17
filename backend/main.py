@@ -27,6 +27,12 @@ async def lifespan(app: FastAPI):
     # Startup — preload heavy models to avoid cold start latency
     logger.info("Viora API v%s starting...", settings.VERSION)
 
+# Initialize event-driven architecture
+    from app.core.events import event_dispatcher
+    from app.listeners.notification_listener import setup_notification_listeners
+    setup_notification_listeners(event_dispatcher)
+    logger.info("Event-driven architecture initialized")
+
     # Preload Viora NER model (~3s on first load, ~120MB)
     try:
         from app.services.viora_ner_service import get_ner_service

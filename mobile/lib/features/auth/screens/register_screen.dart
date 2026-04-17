@@ -175,8 +175,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return l10n.pleaseEnterPassword;
+                          }
                           if (v.length < 6) return l10n.passwordMinLength;
                           return null;
                         },
@@ -202,10 +203,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return l10n.pleaseConfirmPassword;
-                          if (v != _passwordCtrl.text)
+                          }
+                          if (v != _passwordCtrl.text) {
                             return l10n.passwordsDoNotMatch;
+                          }
                           return null;
                         },
                       ),

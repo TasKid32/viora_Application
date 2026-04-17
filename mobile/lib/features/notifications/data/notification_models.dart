@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
+
+/// Notification response wrapper with unread count.
+class NotificationResponse {
+  final int unreadCount;
+  final List<AppNotification> notifications;
+
+  const NotificationResponse({
+    required this.unreadCount,
+    required this.notifications,
+  });
+
+  factory NotificationResponse.fromJson(Map<String, dynamic> json) {
+    final list = json['notifications'] as List? ?? [];
+    return NotificationResponse(
+      unreadCount: json['unread_count'] as int? ?? 0,
+      notifications: list.map((n) => AppNotification.fromJson(n as Map<String, dynamic>)).toList(),
+    );
+  }
+}
+
+
 /// Notification model.
 class AppNotification {
   final String id;
@@ -51,20 +72,22 @@ class AppNotification {
 
   IconData get icon {
     switch (type) {
-      case 'analysis': return Icons.analytics_outlined;
+      case 'cv_analysis': return Icons.analytics_outlined;
       case 'roadmap': return Icons.route_outlined;
       case 'course': return Icons.school_outlined;
       case 'achievement': return Icons.emoji_events_outlined;
+      case 'system': return Icons.info_outline;
       default: return Icons.notifications_outlined;
     }
   }
 
   Color get color {
     switch (type) {
-      case 'analysis': return AppColors.info;
+       case 'cv_analysis': return AppColors.info;
       case 'roadmap': return AppColors.primary;
       case 'course': return AppColors.success;
       case 'achievement': return AppColors.warning;
+       case 'system': return AppColors.textSecondary;
       default: return AppColors.textSecondary;
     }
   }
