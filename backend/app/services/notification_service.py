@@ -153,7 +153,7 @@ class NotificationService:
         logger.info("Notification deleted: id=%s", notification_id)
         return True
 
-    # ── Event-specific notification creators ──────────────────────
+   # ── Event-specific notification creators ──────────────────────
 
     @staticmethod
     def notify_cv_analysis_completed(
@@ -162,16 +162,16 @@ class NotificationService:
         job_title: str,
         skills_found: int,
         gaps_found: int,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = "📊 اكتمل تحليل السيرة الذاتية"
-            message = f"تم تحليل سيرتك بنجاح! الوظيفة المتوقعة: {job_title}. وجدنا {skills_found} مهارات وحددنا {gaps_found} فجوات مهارية."
-        else:
-            title = "CV Analysis Completed"
-            message = f"Your CV has been analyzed! Predicted role: {job_title}. Found {skills_found} skills and identified {gaps_found} skill gaps."
-        
-        return NotificationService.create_notification(db, user_id, title, message, "cv_analysis")
+        """Notify user that CV analysis is complete."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title="CV Analysis Completed",
+            message=f"Your CV has been analyzed! Predicted role: {job_title}. "
+                   f"Found {skills_found} skills and identified {gaps_found} skill gaps.",
+            notification_type="cv_analysis",
+        )
 
     @staticmethod
     def notify_roadmap_generated(
@@ -179,79 +179,77 @@ class NotificationService:
         user_id: str,
         phase_count: int,
         total_topics: int,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = "🗺️ خارطة الطريق جاهزة"
-            message = f"خارطة طريقك المخصصة جاهزة! تتكون من {phase_count} مراحل مع {total_topics} موضوعًا لإتقانها."
-        else:
-            title = "Learning Roadmap Ready"
-            message = f"Your personalized learning roadmap is ready! {phase_count} phases with {total_topics} topics to master."
-        
-        return NotificationService.create_notification(db, user_id, title, message, "roadmap")
+        """Notify user that learning roadmap has been generated."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title="Learning Roadmap Ready",
+            message=f"Your personalized learning roadmap is ready! "
+                   f"{phase_count} phases with {total_topics} topics to master.",
+            notification_type="roadmap",
+        )
 
     @staticmethod
     def notify_course_completed(
         db: Session,
         user_id: str,
         course_title: str,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = "🎉 تم إكمال الدورة!"
-            message = f"تهانينا! لقد أكملت دورة '{course_title}'. استمر في هذا الأداء الرائع!"
-        else:
-            title = "Course Completed! 🎉"
-            message = f"Congratulations! You've completed '{course_title}'. Keep up the great work!"
-        
-        return NotificationService.create_notification(db, user_id, title, message, "achievement")
+        """Notify user that they completed a course."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title="Course Completed! 🎉",
+            message=f"Congratulations! You've completed '{course_title}'. "
+                   f"Keep up the great work!",
+            notification_type="achievement",
+        )
 
     @staticmethod
     def notify_profile_updated(
         db: Session,
         user_id: str,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = "👤 تم تحديث الملف الشخصي"
-            message = "تم تحديث بيانات ملفك الشخصي بنجاح."
-        else:
-            title = "Profile Updated"
-            message = "Your profile information has been successfully updated."
-        
-        return NotificationService.create_notification(db, user_id, title, message, "system")
+        """Notify user that their profile was updated."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title="Profile Updated",
+            message="Your profile information has been successfully updated.",
+            notification_type="system",
+        )
 
     @staticmethod
     def notify_roadmap_phase_completed(
         db: Session,
         user_id: str,
         phase_name: str,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = "🏆 اكتملت المرحلة!"
-            message = f"تقدم ممتاز! لقد أكملت مرحلة '{phase_name}'. هل أنتِ مستعدة للتحدي القادم؟"
-        else:
-            title = "Phase Completed! 🏆"
-            message = f"Great progress! You've completed the '{phase_name}' phase. Ready for the next challenge?"
-        
-        return NotificationService.create_notification(db, user_id, title, message, "achievement")
+        """Notify user that they completed a roadmap phase."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title="Phase Completed! 🏆",
+            message=f"Great progress! You've completed the '{phase_name}' phase. "
+                   f"Ready for the next challenge?",
+            notification_type="achievement",
+        )
 
     @staticmethod
     def notify_welcome(
         db: Session,
         user_id: str,
         full_name: str,
-        lang: str = "ar"
     ) -> models.Notification:
-        if lang == "ar":
-            title = f"مرحباً بك في فيورا، {full_name}! ✨"
-            message = "ابدأ رحلتك المهنية برفع سيرتك الذاتية للحصول على تحليل مخصص."
-        else:
-            title = f"Welcome to Viora, {full_name}!"
-            message = "Start your career journey by uploading your CV for personalized analysis."
-            
-        return NotificationService.create_notification(db, user_id, title, message, "system")
+        """Welcome notification for new users."""
+        return NotificationService.create_notification(
+            db=db,
+            user_id=user_id,
+            title=f"Welcome to Viora, {full_name}!",
+            message="Start your career journey by uploading your CV for personalized analysis.",
+            notification_type="system",
+        )
 
 
 # ── Singleton instance ──────────────────────────────────────────

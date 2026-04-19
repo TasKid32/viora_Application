@@ -15,7 +15,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appTagline => 'معاً نصنع رؤيتك.';
 
   @override
-  String get appDeveloper => 'تم تطويرة بواسطة فريق فورا - جامعة الجوف @2026';
+  String get appDeveloper => 'تم تطويرة بواسطة فريق فورا - جامعة الجوف ©2026';
 
   @override
   String get getStarted => 'ابدأ الآن';
@@ -1274,7 +1274,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get appCopyright => '© 2025 فيورا';
+  String get appCopyright => '© 2026 فيورا';
 
   @override
   String get appDescription =>

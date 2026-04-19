@@ -3,7 +3,7 @@
 
   "appName": "viora",
   "appTagline": "Together, we shape your vision.",
-  "appDeveloper": "Developed by Viora Team - Al-Jouf University @2026",
+  "appDeveloper": "Developed by Viora Team - Al-Jouf University ©2026",
   "getStarted": "Get Started",
 
   "welcomeBack": "Welcome back",
@@ -561,6 +561,6 @@
       "count": { "type": "int" }
     }
   },
-  "appCopyright": "© 2025 Viora",
+  "appCopyright": "© 2026 Viora",
   "appDescription": "AI-powered career development and skills analysis app"
 }

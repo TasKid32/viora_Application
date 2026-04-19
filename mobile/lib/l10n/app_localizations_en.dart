@@ -16,7 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appDeveloper =>
-      'Developed by Viora Team - Al-Jouf University @2026';
+      'Developed by Viora Team - Al-Jouf University ©2026';
 
   @override
   String get getStarted => 'Get Started';
@@ -1280,7 +1280,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get appCopyright => '© 2025 Viora';
+  String get appCopyright => '© 2026 Viora';
 
   @override
   String get appDescription =>

@@ -113,7 +113,7 @@ abstract class AppLocalizations {
   /// No description provided for @appDeveloper.
   ///
   /// In en, this message translates to:
-  /// **'Developed by Viora Team - Al-Jouf University @2026'**
+  /// **'Developed by Viora Team - Al-Jouf University ©2026'**
   String get appDeveloper;
 
   /// No description provided for @getStarted.
@@ -2483,7 +2483,7 @@ abstract class AppLocalizations {
   /// No description provided for @appCopyright.
   ///
   /// In en, this message translates to:
-  /// **'© 2025 Viora'**
+  /// **'© 2026 Viora'**
   String get appCopyright;
 
   /// No description provided for @appDescription.
