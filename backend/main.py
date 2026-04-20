@@ -65,6 +65,7 @@ app = FastAPI(
     version=settings.VERSION,
     lifespan=lifespan,
 )
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 # CORS middleware — configurable from .env (B4 Fix)
 ALLOWED_ORIGINS = (
