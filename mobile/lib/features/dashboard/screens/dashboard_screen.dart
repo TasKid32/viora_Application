@@ -98,105 +98,104 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Widget _buildHeader(DashboardData data) {
-  final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context)!;
 
-  return Row(
-    children: [
-      // Avatar with gradient border + glow
-      Container(
-        padding: const EdgeInsets.all(3),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-            colors: [
-              AppColors.primary,
-              AppColors.accent,
+    return Row(
+      children: [
+        // Avatar with gradient border + glow
+        Container(
+          padding: const EdgeInsets.all(3),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [
+                AppColors.primary,
+                AppColors.accent,
+              ],
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primary.withOpacity(0.35),
+                blurRadius: 18,
+                spreadRadius: 3,
+              ),
             ],
           ),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.primary.withOpacity(0.35),
-              blurRadius: 18,
-              spreadRadius: 3,
-            ),
-          ],
-        ),
-        child: CircleAvatar(
-          radius: 24,
-          backgroundColor: AppColors.primarySurface,
-          backgroundImage: data.avatarUrl != null && data.avatarUrl!.isNotEmpty
-              ? NetworkImage(data.avatarUrl!)
-              : null,
-          child: data.avatarUrl == null || data.avatarUrl!.isEmpty
-              ? Text(
-                  data.userName.isNotEmpty
-                      ? data.userName[0].toUpperCase()
-                      : '?',
-                  style: AppTextStyles.h3.copyWith(color: AppColors.primary),
-                )
-              : null,
-        ),
-      ),
-
-      const SizedBox(width: 14),
-
-     Expanded(
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        '${l10n.welcomeBack} 👋',
-        style: AppTextStyles.h3.copyWith(
-          color: AppColors.primary,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      const SizedBox(height: 4),
-      Text(
-        data.userName,
-        style: AppTextStyles.h2.copyWith(
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    ],
-  ),
-),
-
-
-      // Notifications badge (بدون تغيير)
-      Stack(
-        children: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined,
-                color: AppColors.textSecondary),
-            onPressed: () => context.push(Routes.notifications),
+          child: CircleAvatar(
+            radius: 24,
+            backgroundColor: AppColors.primarySurface,
+            backgroundImage: data.avatarUrl != null &&
+                    data.avatarUrl!.isNotEmpty
+                ? NetworkImage("http://192.168.0.105:8000${data.avatarUrl!}") //Add avatar URL prefix
+                : null,
+            child: data.avatarUrl == null || data.avatarUrl!.isEmpty
+                ? Text(
+                    data.userName.isNotEmpty
+                        ? data.userName[0].toUpperCase()
+                        : '?',
+                    style: AppTextStyles.h3.copyWith(color: AppColors.primary),
+                  )
+                : null,
           ),
-          if (data.notificationsCount > 0)
-            Positioned(
-              right: 8,
-              top: 8,
-              child: Container(
-                width: 18,
-                height: 18,
-                decoration: const BoxDecoration(
-                    color: AppColors.error, shape: BoxShape.circle),
-                child: Center(
-                  child: Text(
-                    '${data.notificationsCount}',
-                    style: const TextStyle(
-                        color: AppColors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
+        ),
+
+        const SizedBox(width: 14),
+
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${l10n.welcomeBack} 👋',
+                style: AppTextStyles.h3.copyWith(
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                data.userName,
+                style: AppTextStyles.h2.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        // Notifications badge (بدون تغيير)
+        Stack(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.notifications_outlined,
+                  color: AppColors.textSecondary),
+              onPressed: () => context.push(Routes.notifications),
+            ),
+            if (data.notificationsCount > 0)
+              Positioned(
+                right: 8,
+                top: 8,
+                child: Container(
+                  width: 18,
+                  height: 18,
+                  decoration: const BoxDecoration(
+                      color: AppColors.error, shape: BoxShape.circle),
+                  child: Center(
+                    child: Text(
+                      '${data.notificationsCount}',
+                      style: const TextStyle(
+                          color: AppColors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
-            ),
-        ],
-      ),
-    ],
-  );
-}
-
+          ],
+        ),
+      ],
+    );
+  }
 
   Widget _buildProgressCard(DashboardData data) {
     final progress = data.learningProgress / 100;

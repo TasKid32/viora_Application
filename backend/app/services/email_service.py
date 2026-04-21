@@ -56,7 +56,7 @@ class EmailService:
         try:
             msg = MIMEMultipart("alternative")
             msg["Subject"] = subject
-            msg["From"] = self.from_email
+            msg["From"] = f"Viora Support <{self.from_email}>"
             msg["To"] = to_email
 
             msg.attach(MIMEText(html_body, "html"))
@@ -90,8 +90,8 @@ class EmailService:
         Returns:
             True if email was sent successfully
         """
-        frontend_url = getattr(settings, "FRONTEND_URL", "http://localhost:3000")
-        reset_url = f"{frontend_url}/reset-password?token={reset_token}"
+        frontend_url = getattr(settings, "FRONTEND_URL", "http://192.168.0.105:8000")
+        reset_url = f"{frontend_url}/api/auth/reset-password?token={reset_token}"
 
         subject = "Viora — Password Reset Request"
         html_body = f"""

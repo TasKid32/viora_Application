@@ -196,10 +196,16 @@ class ApiClient {
     required FormData data,
     void Function(int sent, int total)? onProgress,
   }) {
-    return _dio.post(
+    // تأكدي أن الميثود هنا POST لأننا غيرناها في FastAPI لـ POST
+    return _dio.post( 
       path,
       data: data,
-      options: Options(receiveTimeout: Duration(seconds: Environment.uploadTimeout)),
+      options: Options(
+        receiveTimeout: Duration(seconds: Environment.uploadTimeout),
+        contentType: 'multipart/form-data',
+        followRedirects: false, // هذا يمنع التحويل اللي يسبب 405
+        validateStatus: (status) => status! < 500, // اختياري: يخلي فلاتر ما تعطي Exception لو الكود 405 عشان نشوفه بوضوح
+      ),
       onSendProgress: onProgress,
     );
   }

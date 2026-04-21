@@ -269,19 +269,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: AppSpacing.sectionGap),
 
-Padding(
-  padding: const EdgeInsets.only(top: 24, bottom: 16),
-  child: Center(
-    child: Text(
-      AppLocalizations.of(context)!.appDeveloper,
-      style: const TextStyle(
-        fontSize: 11,
-        color: AppColors.textSecondary,
-      ),
-      textAlign: TextAlign.center,
-    ),
-  ),
-),
+                Padding(
+                  padding: const EdgeInsets.only(top: 24, bottom: 16),
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.appDeveloper,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: AppColors.textSecondary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
 
                 // ── Logout ──
                 SizedBox(
@@ -401,7 +401,7 @@ class _AvatarHero extends StatelessWidget {
                     radius: 46,
                     backgroundColor: AppColors.primaryContainer,
                     backgroundImage: avatarUrl != null && avatarUrl!.isNotEmpty
-                        ? NetworkImage(avatarUrl!)
+                        ? NetworkImage("http://192.168.0.105:8000$avatarUrl")
                         : null,
                     child: avatarUrl == null || avatarUrl!.isEmpty
                         ? Text(initial,

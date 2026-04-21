@@ -15,6 +15,7 @@ from app.core.config import settings
 from app.core.logging import get_logger
 from app.db.database import engine
 from app.db import models
+from fastapi.staticfiles import StaticFiles
 
 logger = get_logger(__name__)
 
@@ -64,8 +65,16 @@ app = FastAPI(
     description="AI Career Development System - Backend API",
     version=settings.VERSION,
     lifespan=lifespan,
+    redirect_slashes=False,  # Prevent 307 redirects that break POST → 40
 )
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+# Serve static files (e.g. for resume uploads) — creates dir if needed
+static_dir = "app/static"
+if not os.path.exists(static_dir):
+    os.makedirs(static_dir)
+
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 # CORS middleware — configurable from .env (B4 Fix)
 ALLOWED_ORIGINS = (

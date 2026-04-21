@@ -127,7 +127,7 @@ async def update_language(
     return {"success": True}
 
 
-@router.put("/avatar")
+@router.post("/avatar")
 async def upload_avatar(
     file: UploadFile = File(...),
     current_user: models.User = Depends(get_current_user),
