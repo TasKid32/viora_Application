@@ -6,7 +6,7 @@
   "appDeveloper": "Developed by Viora Team - Al-Jouf University ©2026",
   "getStarted": "Get Started",
 
-  "welcomeBack": "Welcome back",
+  "welcomeBack": "Welcome To VIORA",
   "signInToContinue": "Sign in to continue",
   "email": "Email",
   "emailHint": "you@example.com",
@@ -554,7 +554,54 @@
   "roadmapReady": "Roadmap Generated",
   "learningStarted": "Learning in Progress",
   "phaseNotFound": "Phase not found",
+   
+   "appDescription": "AI-powered career development and skills analysis app",
 
+  "notifWelcomeTitle": "Welcome to Viora, {name}!",
+  "@notifWelcomeTitle": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "notifWelcomeMessage": "Start your career journey by uploading your CV for personalized analysis.",
+
+  "notifCvAnalysisTitle": "CV Analysis Completed",
+  "notifCvAnalysisMessage": "Your CV has been analyzed! Predicted role: {jobTitle}. Found {skillsFound} skills and identified {gapsFound} skill gaps.",
+  "@notifCvAnalysisMessage": {
+    "placeholders": {
+      "jobTitle": { "type": "String" },
+      "skillsFound": { "type": "int" },
+      "gapsFound": { "type": "int" }
+    }
+  },
+
+  "notifRoadmapTitle": "Learning Roadmap Ready",
+  "notifRoadmapMessage": "Your personalized learning roadmap is ready! {phaseCount} phases with {totalTopics} topics to master.",
+  "@notifRoadmapMessage": {
+    "placeholders": {
+      "phaseCount": { "type": "int" },
+      "totalTopics": { "type": "int" }
+    }
+  },
+
+  "notifCourseCompletedTitle": "Course Completed! 🎉",
+  "notifCourseCompletedMessage": "Congratulations! You've completed '{courseTitle}'. Keep up the great work!",
+  "@notifCourseCompletedMessage": {
+    "placeholders": {
+      "courseTitle": { "type": "String" }
+    }
+  },
+
+  "notifProfileUpdatedTitle": "Profile Updated",
+  "notifProfileUpdatedMessage": "Your profile information has been successfully updated.",
+
+  "notifPhaseCompletedTitle": "Phase Completed! 🏆",
+  "notifPhaseCompletedMessage": "Great progress! You've completed the '{phaseName}' phase. Ready for the next challenge?",
+  "@notifPhaseCompletedMessage": {
+    "placeholders": {
+      "phaseName": { "type": "String" }
+    }
+  },
   "showAllCount": "Show all ({count})",
   "@showAllCount": {
     "placeholders": {

@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""
-Viora ML Data Setup Script
-===========================
-Downloads and extracts the required ML models and datasets.
-
-Usage:
-    python setup_ml_data.py
-
-The archive contains (~1.1 GB compressed):
-    - ml/viora-ner/models/         (~1.1 GB) - Trained NER models (safetensors, ONNX, quantized ONNX)
-    - ml/viora-ner/data/processed/ (~467 MB) - Processed training data (train/val/test splits)
-    - ml/viora-ner/data/raw/       (~101 MB) - Raw datasets (Kaggle NER + HuggingFace Resumes)
-    - ml/viora-ner/data/cache/     (~1 MB)   - Pre-computed embedding cache
-"""
 
 import os
 import sys

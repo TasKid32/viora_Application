@@ -21,8 +21,12 @@ class NotificationResponse {
   }
 }
 
+/// Notification model with i18n support.
+///
+/// [titleKey]/[messageKey] are translation keys for client-side localization.
+/// [data] contains template variables for string interpolation.
+/// [title]/[message] are English fallbacks from the server.
 
-/// Notification model.
 class AppNotification {
   final String id;
   final String title;
@@ -31,6 +35,12 @@ class AppNotification {
   final bool isRead;
   final DateTime createdAt;
 
+ // ── i18n fields ──────────────────────────────────────────
+  final String? titleKey;
+  final String? messageKey;
+  final Map<String, dynamic>? data;
+
+
   const AppNotification({
     required this.id,
     required this.title,
@@ -38,6 +48,9 @@ class AppNotification {
     required this.type,
     this.isRead = false,
     required this.createdAt,
+    this.titleKey,
+    this.messageKey,
+    this.data,
   });
 
   factory AppNotification.fromJson(Map<String, dynamic> json) {
@@ -48,6 +61,9 @@ class AppNotification {
       type: json['type'] as String? ?? 'general',
       isRead: json['is_read'] as bool? ?? false,
       createdAt: DateTime.tryParse(json['timestamp'] ?? json['created_at'] ?? '') ?? DateTime.now(),
+       titleKey: json['title_key'] as String?,
+      messageKey: json['message_key'] as String?,
+      data: json['data'] is Map ? Map<String, dynamic>.from(json['data']) : null,
     );
   }
 
@@ -59,6 +75,9 @@ class AppNotification {
     String? type,
     bool? isRead,
     DateTime? createdAt,
+     String? titleKey,
+    String? messageKey,
+    Map<String, dynamic>? data,
   }) {
     return AppNotification(
       id: id ?? this.id,
@@ -67,6 +86,9 @@ class AppNotification {
       type: type ?? this.type,
       isRead: isRead ?? this.isRead,
       createdAt: createdAt ?? this.createdAt,
+      titleKey: titleKey ?? this.titleKey,
+      messageKey: messageKey ?? this.messageKey,
+      data: data ?? this.data,
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viora_app/core/config/environment.dart';
 import 'package:viora_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
@@ -115,7 +116,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primary.withOpacity(0.35),
+                color: AppColors.primary.withValues(alpha:0.35),
                 blurRadius: 18,
                 spreadRadius: 3,
               ),
@@ -126,7 +127,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             backgroundColor: AppColors.primarySurface,
             backgroundImage: data.avatarUrl != null &&
                     data.avatarUrl!.isNotEmpty
-                ? NetworkImage("http://192.168.0.105:8000${data.avatarUrl!}") //Add avatar URL prefix
+                ? NetworkImage(
+                    "${Environment.apiBaseUrl}${data.avatarUrl}") //Add avatar URL prefix
                 : null,
             child: data.avatarUrl == null || data.avatarUrl!.isEmpty
                 ? Text(

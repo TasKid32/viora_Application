@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viora_app/features/notifications/data/notification_translator.dart';
 import 'package:viora_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import '../../../core/theme/app_colors.dart';
@@ -146,35 +147,41 @@ class _NotificationTile extends StatelessWidget {
             const SizedBox(width: 12),
             // Content
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    notification.title,
-                    style: AppTextStyles.bodyBold.copyWith(
-                      fontWeight: notification.isRead
-                          ? FontWeight.w400
-                          : FontWeight.w600,
-                    ),
+               child: Builder(
+                builder: (context) {
+                  final l10n = AppLocalizations.of(context)!;
+                  final localTitle = NotificationTranslator.title(
+                    l10n, notification.titleKey, notification.title, notification.data,
+                  );
+                  final localMessage = NotificationTranslator.message(
+                    l10n, notification.messageKey, notification.message, notification.data,
+                  );
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        localTitle,
+                        style: AppTextStyles.bodyBold.copyWith(
+                          fontWeight: notification.isRead ? FontWeight.w400 : FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        localMessage,
+                        style: AppTextStyles.bodySmall.copyWith(color: AppColors.textSecondary),
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        _timeAgo(notification.createdAt, l10n),
+                        style: AppTextStyles.caption.copyWith(color: AppColors.textHint),
+                      ),
+                    ],
+                  );
+                },
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    notification.message,
-                    style: AppTextStyles.bodySmall
-                        .copyWith(color: AppColors.textSecondary),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    _timeAgo(
-                        notification.createdAt, AppLocalizations.of(context)!),
-                    style: AppTextStyles.caption
-                        .copyWith(color: AppColors.textHint),
-                  ),
-                ],
               ),
-            ),
             // Unread dot
             if (!notification.isRead)
               Container(

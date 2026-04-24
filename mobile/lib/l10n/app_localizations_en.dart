@@ -22,7 +22,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get getStarted => 'Get Started';
 
   @override
-  String get welcomeBack => 'Welcome back';
+  String get welcomeBack => 'Welcome To VIORA';
 
   @override
   String get signInToContinue => 'Sign in to continue';
@@ -1275,14 +1275,63 @@ class AppLocalizationsEn extends AppLocalizations {
   String get phaseNotFound => 'Phase not found';
 
   @override
+  String get appDescription =>
+      'AI-powered career development and skills analysis app';
+
+  @override
+  String notifWelcomeTitle(String name) {
+    return 'Welcome to Viora, $name!';
+  }
+
+  @override
+  String get notifWelcomeMessage =>
+      'Start your career journey by uploading your CV for personalized analysis.';
+
+  @override
+  String get notifCvAnalysisTitle => 'CV Analysis Completed';
+
+  @override
+  String notifCvAnalysisMessage(
+      String jobTitle, int skillsFound, int gapsFound) {
+    return 'Your CV has been analyzed! Predicted role: $jobTitle. Found $skillsFound skills and identified $gapsFound skill gaps.';
+  }
+
+  @override
+  String get notifRoadmapTitle => 'Learning Roadmap Ready';
+
+  @override
+  String notifRoadmapMessage(int phaseCount, int totalTopics) {
+    return 'Your personalized learning roadmap is ready! $phaseCount phases with $totalTopics topics to master.';
+  }
+
+  @override
+  String get notifCourseCompletedTitle => 'Course Completed! 🎉';
+
+  @override
+  String notifCourseCompletedMessage(String courseTitle) {
+    return 'Congratulations! You\'ve completed \'$courseTitle\'. Keep up the great work!';
+  }
+
+  @override
+  String get notifProfileUpdatedTitle => 'Profile Updated';
+
+  @override
+  String get notifProfileUpdatedMessage =>
+      'Your profile information has been successfully updated.';
+
+  @override
+  String get notifPhaseCompletedTitle => 'Phase Completed! 🏆';
+
+  @override
+  String notifPhaseCompletedMessage(String phaseName) {
+    return 'Great progress! You\'ve completed the \'$phaseName\' phase. Ready for the next challenge?';
+  }
+
+  @override
   String showAllCount(int count) {
     return 'Show all ($count)';
   }
 
   @override
   String get appCopyright => '© 2026 Viora';
-
-  @override
-  String get appDescription =>
-      'AI-powered career development and skills analysis app';
 }

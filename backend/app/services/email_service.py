@@ -104,27 +104,29 @@ class EmailService:
             </div>
             <div style="padding: 30px; background: #f9fafb; border-radius: 0 0 10px 10px;">
                 <h2 style="color: #1f2937;">Password Reset</h2>
-                <p style="color: #4b5563;">
-                    You requested a password reset for your Viora account.
-                    Click the button below to set a new password:
-                </p>
+                <p style="color: #4b5563;">You requested a password reset for your Viora account.</p>
+                
                 <div style="text-align: center; margin: 30px 0;">
-                    <a href="{reset_url}"
-                       style="background: #667eea; color: white; padding: 12px 30px;
-                              text-decoration: none; border-radius: 6px; font-weight: bold;">
-                        Reset Password
-                    </a>
+                    <table align="center" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td align="center" bgcolor="#667eea" style="border-radius: 6px;">
+                                <a href="{reset_url}" target="_blank" 
+                                   style="padding: 12px 30px; color: #ffffff; text-decoration: none; font-weight: bold; display: inline-block;">
+                                    Reset Password
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+                
                 <p style="color: #6b7280; font-size: 14px;">
                     This link will expire in {getattr(settings, 'PASSWORD_RESET_EXPIRE_MINUTES', 30)} minutes.
-                </p>
-                <p style="color: #9ca3af; font-size: 12px;">
-                    If you didn't request this, you can safely ignore this email.
                 </p>
             </div>
         </body>
         </html>
         """
+        return self._send_email(to_email, subject, html_body)
         return self._send_email(to_email, subject, html_body)
 
     def send_password_changed_notification(self, to_email: str) -> bool:

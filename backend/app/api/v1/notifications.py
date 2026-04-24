@@ -51,7 +51,11 @@ async def get_notifications(
             "message": n.message,
             "timestamp": ts.isoformat() if ts else None,
             "is_read": n.is_read,
-            "icon": icon_map.get(n.type, "🔔")
+           "icon": icon_map.get(n.type, "🔔"),
+            # ── i18n keys for client-side localization ──
+            "title_key": n.title_key,
+            "message_key": n.message_key,
+            "data": n.data,
         })
     
     return {

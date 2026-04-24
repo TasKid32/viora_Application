@@ -6,8 +6,9 @@ notifications when real user-impacting events occur.
 
 NO fake data. NO UI-only notifications. ONLY real backend events.
 """
+
 from sqlalchemy.orm import Session
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from datetime import datetime, timezone
 
 from app.db import models
@@ -36,6 +37,9 @@ class NotificationService:
         title: str,
         message: str,
         notification_type: str,
+        title_key: Optional[str] = None,
+        message_key: Optional[str] = None,
+        data: Optional[Dict[str, Any]] = None,
     ) -> models.Notification:
         """
         Create a new notification in the database.
@@ -43,10 +47,15 @@ class NotificationService:
         Args:
             db: Database session
             user_id: Target user ID
-            title: Notification title
-            message: Notification message body
+            title: English fallback title
+            message: English fallback message body
             notification_type: Type of notification (cv_analysis, roadmap, course, etc.)
-            
+            title_key: i18n translation key for the title
+            message_key: i18n translation key for the message
+            data: Template variables for i18n interpolation
+            title_key: Translation key for the title (client-side i18n)
+            message_key: Translation key for the message (client-side i18n)
+            data: Template variables for interpolation (e.g. {"job_title": "Developer"})
         Returns:
             Created Notification model instance
         """
@@ -56,14 +65,17 @@ class NotificationService:
             title=title,
             message=message,
             is_read=False,
+            title_key=title_key,
+            message_key=message_key,
+            data=data,
         )
         
         db.add(notification)
         db.flush()  # Get ID without committing transaction
         
         logger.info(
-            "Notification created: id=%s, user=%s, type=%s, title=%s",
-            notification.id, user_id, notification_type, title
+           "Notification created: id=%s, user=%s, type=%s, title_key=%s",
+            notification.id, user_id, notification_type, title_key or title
         )
         
         return notification
@@ -171,6 +183,13 @@ class NotificationService:
             message=f"Your CV has been analyzed! Predicted role: {job_title}. "
                    f"Found {skills_found} skills and identified {gaps_found} skill gaps.",
             notification_type="cv_analysis",
+            title_key="notif_cv_analysis_title",
+            message_key="notif_cv_analysis_message",
+            data={
+                "job_title": job_title,
+                "skills_found": skills_found,
+                "gaps_found": gaps_found,
+            },
         )
 
     @staticmethod
@@ -188,6 +207,12 @@ class NotificationService:
             message=f"Your personalized learning roadmap is ready! "
                    f"{phase_count} phases with {total_topics} topics to master.",
             notification_type="roadmap",
+             title_key="notif_roadmap_title",
+            message_key="notif_roadmap_message",
+            data={
+                "phase_count": phase_count,
+                "total_topics": total_topics,
+            },
         )
 
     @staticmethod
@@ -204,6 +229,9 @@ class NotificationService:
             message=f"Congratulations! You've completed '{course_title}'. "
                    f"Keep up the great work!",
             notification_type="achievement",
+              title_key="notif_course_completed_title",
+            message_key="notif_course_completed_message",
+            data={"course_title": course_title},
         )
 
     @staticmethod
@@ -218,6 +246,8 @@ class NotificationService:
             title="Profile Updated",
             message="Your profile information has been successfully updated.",
             notification_type="system",
+            title_key="notif_profile_updated_title",
+            message_key="notif_profile_updated_message",
         )
 
     @staticmethod
@@ -234,6 +264,9 @@ class NotificationService:
             message=f"Great progress! You've completed the '{phase_name}' phase. "
                    f"Ready for the next challenge?",
             notification_type="achievement",
+             title_key="notif_phase_completed_title",
+            message_key="notif_phase_completed_message",
+            data={"phase_name": phase_name},
         )
 
     @staticmethod
@@ -249,6 +282,9 @@ class NotificationService:
             title=f"Welcome to Viora, {full_name}!",
             message="Start your career journey by uploading your CV for personalized analysis.",
             notification_type="system",
+            title_key="notif_welcome_title",
+            message_key="notif_welcome_message",
+            data={"full_name": full_name},
         )
 
 

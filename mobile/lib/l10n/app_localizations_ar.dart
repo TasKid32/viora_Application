@@ -21,7 +21,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get getStarted => 'ابدأ الآن';
 
   @override
-  String get welcomeBack => 'مرحباً بعودتك';
+  String get welcomeBack => 'مرحباً بك في فيورا ';
 
   @override
   String get signInToContinue => 'سجل الدخول للمتابعة';
@@ -1269,14 +1269,63 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phaseNotFound => 'المرحلة غير موجودة';
 
   @override
+  String get appDescription =>
+      'تطبيق تطوير مهني وتحليل مهارات مدعوم بالذكاء الاصطناعي';
+
+  @override
+  String notifWelcomeTitle(String name) {
+    return 'مرحباً بك في فيورا، $name!';
+  }
+
+  @override
+  String get notifWelcomeMessage =>
+      'ابدأ رحلتك المهنية برفع سيرتك الذاتية للحصول على تحليل مخصص.';
+
+  @override
+  String get notifCvAnalysisTitle => 'اكتمل تحليل السيرة الذاتية';
+
+  @override
+  String notifCvAnalysisMessage(
+      String jobTitle, int skillsFound, int gapsFound) {
+    return 'تم تحليل سيرتك الذاتية! الدور المتوقع: $jobTitle. تم العثور على $skillsFound مهارة وتحديد $gapsFound فجوة مهارية.';
+  }
+
+  @override
+  String get notifRoadmapTitle => 'خطة التعلم جاهزة';
+
+  @override
+  String notifRoadmapMessage(int phaseCount, int totalTopics) {
+    return 'خطة التعلم المخصصة جاهزة! $phaseCount مراحل تحتوي على $totalTopics موضوع لإتقانها.';
+  }
+
+  @override
+  String get notifCourseCompletedTitle => 'اكتملت الدورة! 🎉';
+
+  @override
+  String notifCourseCompletedMessage(String courseTitle) {
+    return 'تهانينا! لقد أكملت \'$courseTitle\'. واصل العمل الرائع!';
+  }
+
+  @override
+  String get notifProfileUpdatedTitle => 'تم تحديث الملف الشخصي';
+
+  @override
+  String get notifProfileUpdatedMessage =>
+      'تم تحديث معلومات ملفك الشخصي بنجاح.';
+
+  @override
+  String get notifPhaseCompletedTitle => 'اكتملت المرحلة! 🏆';
+
+  @override
+  String notifPhaseCompletedMessage(String phaseName) {
+    return 'تقدم رائع! لقد أكملت مرحلة \'$phaseName\'. جاهز للتحدي التالي؟';
+  }
+
+  @override
   String showAllCount(int count) {
     return 'عرض الكل ($count)';
   }
 
   @override
   String get appCopyright => '© 2026 فيورا';
-
-  @override
-  String get appDescription =>
-      'تطبيق تطوير مهني وتحليل مهارات مدعوم بالذكاء الاصطناعي';
 }

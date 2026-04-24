@@ -7,6 +7,7 @@ class Environment {
   static const String _buildTimeApiUrl = String.fromEnvironment(
     'API_URL',
     defaultValue: 'http://10.0.2.2:8000',
+    
   );
 
   static const bool isDevelopment = !kReleaseMode;

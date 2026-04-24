@@ -22,6 +22,73 @@ logger = get_logger(__name__)
 # Create database tables
 models.Base.metadata.create_all(bind=engine)
 
+# ── Lightweight migration: add i18n columns if missing ────────────
+from sqlalchemy import inspect, text
+_inspector = inspect(engine)
+_existing_cols = [c["name"] for c in _inspector.get_columns("notifications")]
+with engine.begin() as _conn:
+    for _col in ("title_key TEXT", "message_key TEXT", "data TEXT"):
+        _name = _col.split()[0]
+        if _name not in _existing_cols:
+            _conn.execute(text(f"ALTER TABLE notifications ADD COLUMN {_col}"))
+            logger.info("Migration: added column '%s' to notifications", _name)
+
+# ── Backfill i18n keys for old notifications ──────────────────────
+import re, json as _json
+
+def _backfill_notification_i18n(conn):
+    """Parse existing English text to populate title_key/message_key/data."""
+    rows = conn.execute(text(
+        "SELECT id, type, title, message FROM notifications WHERE title_key IS NULL"
+    )).fetchall()
+    if not rows:
+        return
+    logger.info("Backfilling i18n keys for %d old notifications...", len(rows))
+    for nid, ntype, title, message in rows:
+        tk = mk = None
+        data = None
+
+        if ntype == "system":
+            if "Welcome" in (title or ""):
+                m = re.search(r"Welcome to Viora, (.+?)!", title)
+                tk, mk = "notif_welcome_title", "notif_welcome_message"
+                data = _json.dumps({"full_name": m.group(1) if m else ""})
+            elif "Profile" in (title or ""):
+                tk, mk = "notif_profile_updated_title", "notif_profile_updated_message"
+
+        elif ntype == "cv_analysis":
+            tk, mk = "notif_cv_analysis_title", "notif_cv_analysis_message"
+            m = re.search(r"Predicted role: (.+?)\. Found (\d+) skills and identified (\d+)", message or "")
+            if m:
+                data = _json.dumps({"job_title": m.group(1), "skills_found": int(m.group(2)), "gaps_found": int(m.group(3))})
+
+        elif ntype == "roadmap":
+            tk, mk = "notif_roadmap_title", "notif_roadmap_message"
+            m = re.search(r"(\d+) phases with (\d+) topics", message or "")
+            if m:
+                data = _json.dumps({"phase_count": int(m.group(1)), "total_topics": int(m.group(2))})
+
+        elif ntype == "achievement":
+            if "Course" in (title or ""):
+                tk, mk = "notif_course_completed_title", "notif_course_completed_message"
+                m = re.search(r"completed '(.+?)'", message or "")
+                if m:
+                    data = _json.dumps({"course_title": m.group(1)})
+            elif "Phase" in (title or ""):
+                tk, mk = "notif_phase_completed_title", "notif_phase_completed_message"
+                m = re.search(r"completed the '(.+?)' phase", message or "")
+                if m:
+                    data = _json.dumps({"phase_name": m.group(1)})
+
+        if tk:
+            conn.execute(text(
+                "UPDATE notifications SET title_key=:tk, message_key=:mk, data=:d WHERE id=:id"
+            ), {"tk": tk, "mk": mk, "d": data, "id": nid})
+
+    logger.info("Backfill complete: %d notifications updated", len(rows))
+
+with engine.begin() as _conn:
+    _backfill_notification_i18n(_conn)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viora_app/core/config/environment.dart';
 import 'package:viora_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
@@ -251,15 +252,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         title: AppLocalizations.of(context)!.about,
                         onTap: () {
                           final l10n = AppLocalizations.of(context)!;
-                          showAboutDialog(
+                          showDialog(
                             context: context,
-                            applicationName: l10n.appName,
-                            applicationVersion: '1.0.0',
-                            applicationLegalese: l10n.appCopyright,
-                            children: [
-                              const SizedBox(height: 16),
-                              Text(l10n.appDescription),
-                            ],
+                            builder: (context) => AlertDialog(
+                              title: Text(l10n.about),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // شعار التطبيق أو أي أيقونة
+                                  Image.asset('assets/logo.png',
+                                    width: 80, 
+                                    height: 80,
+                                    fit: BoxFit.contain,
+                                    ),
+        
+                                  const SizedBox(height: 16),
+
+                                  // اسم التطبيق والنسخة
+                                  Text(
+                                    l10n.appName,
+                                    style: AppTextStyles.h2
+                                        .copyWith(color: AppColors.primary),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text('Version 1.0.0',
+                                      style: AppTextStyles.caption),
+
+                                  const Divider(height: 32),
+
+                                  // وصف التطبيق
+                                  Text(
+                                    l10n.appDescription,
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyles.body,
+                                  ),
+
+                                  const SizedBox(height: 16),
+
+                                  // حقوق النشر
+                                  Text(
+                                    l10n.appCopyright,
+                                    style: AppTextStyles.caption
+                                        .copyWith(fontSize: 10),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text(l10n.cancel), // أو "إغلاق"
+                                ),
+                              ],
+                            ),
                           );
                         },
                         isLast: true,
@@ -358,7 +403,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-// ─── Sub-widgets ────────────────────────────────────────
+// ─── Sub-widgets ──────────────
 
 class _AvatarHero extends StatelessWidget {
   final String name;
@@ -401,7 +446,7 @@ class _AvatarHero extends StatelessWidget {
                     radius: 46,
                     backgroundColor: AppColors.primaryContainer,
                     backgroundImage: avatarUrl != null && avatarUrl!.isNotEmpty
-                        ? NetworkImage("http://192.168.0.105:8000$avatarUrl")
+                        ? NetworkImage("${Environment.apiBaseUrl}$avatarUrl")
                         : null,
                     child: avatarUrl == null || avatarUrl!.isEmpty
                         ? Text(initial,

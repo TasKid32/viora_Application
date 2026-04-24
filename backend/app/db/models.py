@@ -120,6 +120,13 @@ class Notification(Base):
     is_read = Column(Boolean, default=False)
     created_at = Column(DateTime, default=_utc_now)
 
+# ── i18n support ──────────────────────────────────────────
+    # Translation keys + template data for client-side localization.
+    # title/message remain as English fallbacks.
+    title_key = Column(String, nullable=True)
+    message_key = Column(String, nullable=True)
+    data = Column(JSON, nullable=True)  # Template variables for interpolation
+    
     # Relationships
     user = relationship("User", back_populates="notifications")
 

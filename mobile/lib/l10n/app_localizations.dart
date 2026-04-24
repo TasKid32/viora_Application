@@ -125,7 +125,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcomeBack.
   ///
   /// In en, this message translates to:
-  /// **'Welcome back'**
+  /// **'Welcome To VIORA'**
   String get welcomeBack;
 
   /// No description provided for @signInToContinue.
@@ -2474,6 +2474,85 @@ abstract class AppLocalizations {
   /// **'Phase not found'**
   String get phaseNotFound;
 
+  /// No description provided for @appDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-powered career development and skills analysis app'**
+  String get appDescription;
+
+  /// No description provided for @notifWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Viora, {name}!'**
+  String notifWelcomeTitle(String name);
+
+  /// No description provided for @notifWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your career journey by uploading your CV for personalized analysis.'**
+  String get notifWelcomeMessage;
+
+  /// No description provided for @notifCvAnalysisTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'CV Analysis Completed'**
+  String get notifCvAnalysisTitle;
+
+  /// No description provided for @notifCvAnalysisMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your CV has been analyzed! Predicted role: {jobTitle}. Found {skillsFound} skills and identified {gapsFound} skill gaps.'**
+  String notifCvAnalysisMessage(
+      String jobTitle, int skillsFound, int gapsFound);
+
+  /// No description provided for @notifRoadmapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning Roadmap Ready'**
+  String get notifRoadmapTitle;
+
+  /// No description provided for @notifRoadmapMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized learning roadmap is ready! {phaseCount} phases with {totalTopics} topics to master.'**
+  String notifRoadmapMessage(int phaseCount, int totalTopics);
+
+  /// No description provided for @notifCourseCompletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Completed! 🎉'**
+  String get notifCourseCompletedTitle;
+
+  /// No description provided for @notifCourseCompletedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! You\'ve completed \'{courseTitle}\'. Keep up the great work!'**
+  String notifCourseCompletedMessage(String courseTitle);
+
+  /// No description provided for @notifProfileUpdatedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Updated'**
+  String get notifProfileUpdatedTitle;
+
+  /// No description provided for @notifProfileUpdatedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your profile information has been successfully updated.'**
+  String get notifProfileUpdatedMessage;
+
+  /// No description provided for @notifPhaseCompletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Phase Completed! 🏆'**
+  String get notifPhaseCompletedTitle;
+
+  /// No description provided for @notifPhaseCompletedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Great progress! You\'ve completed the \'{phaseName}\' phase. Ready for the next challenge?'**
+  String notifPhaseCompletedMessage(String phaseName);
+
   /// No description provided for @showAllCount.
   ///
   /// In en, this message translates to:
@@ -2485,12 +2564,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'© 2026 Viora'**
   String get appCopyright;
-
-  /// No description provided for @appDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'AI-powered career development and skills analysis app'**
-  String get appDescription;
 }
 
 class _AppLocalizationsDelegate

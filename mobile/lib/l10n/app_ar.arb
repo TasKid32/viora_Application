@@ -6,7 +6,7 @@
   "appDeveloper": "تم تطويرة بواسطة فريق فورا - جامعة الجوف ©2026",
   "getStarted": "ابدأ الآن",
 
-  "welcomeBack": "مرحباً بعودتك",
+  "welcomeBack": "مرحباً بك في فيورا ",
   "signInToContinue": "سجل الدخول للمتابعة",
   "email": "البريد الإلكتروني",
   "emailHint": "you@example.com",
@@ -434,6 +434,26 @@
   "learningStarted": "التعلم قيد التقدم",
   "phaseNotFound": "المرحلة غير موجودة",
 
+
+  "appDescription": "تطبيق تطوير مهني وتحليل مهارات مدعوم بالذكاء الاصطناعي",
+
+  "notifWelcomeTitle": "مرحباً بك في فيورا، {name}!",
+  "notifWelcomeMessage": "ابدأ رحلتك المهنية برفع سيرتك الذاتية للحصول على تحليل مخصص.",
+
+  "notifCvAnalysisTitle": "اكتمل تحليل السيرة الذاتية",
+  "notifCvAnalysisMessage": "تم تحليل سيرتك الذاتية! الدور المتوقع: {jobTitle}. تم العثور على {skillsFound} مهارة وتحديد {gapsFound} فجوة مهارية.",
+
+  "notifRoadmapTitle": "خطة التعلم جاهزة",
+  "notifRoadmapMessage": "خطة التعلم المخصصة جاهزة! {phaseCount} مراحل تحتوي على {totalTopics} موضوع لإتقانها.",
+
+  "notifCourseCompletedTitle": "اكتملت الدورة! 🎉",
+  "notifCourseCompletedMessage": "تهانينا! لقد أكملت '{courseTitle}'. واصل العمل الرائع!",
+
+  "notifProfileUpdatedTitle": "تم تحديث الملف الشخصي",
+  "notifProfileUpdatedMessage": "تم تحديث معلومات ملفك الشخصي بنجاح.",
+
+  "notifPhaseCompletedTitle": "اكتملت المرحلة! 🏆",
+  "notifPhaseCompletedMessage": "تقدم رائع! لقد أكملت مرحلة '{phaseName}'. جاهز للتحدي التالي؟",
   "showAllCount": "عرض الكل ({count})",
   "appCopyright": "© 2026 فيورا",
   "appDescription": "تطبيق تطوير مهني وتحليل مهارات مدعوم بالذكاء الاصطناعي"
