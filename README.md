@@ -48,8 +48,6 @@
 ## 🔄 آلية عمل الذكاء الاصطناعي (AI Pipeline)
 تعتمد المنصة على "خط إنتاج" ذكي يضمن سرعة التحليل في أقل من **200 مللي ثانية**:
 
-![NER Inference Pipeline for Resume Analysis](ml/viora-ner/docs/pipeline_diagram.png)
-
 1. **الاستخراج (Extraction):** تحويل الملفات المرفوعة إلى نص رقمي نظيف.
 2. **محرك الـ NER:** تصنيف الكلمات إلى 8 أنواع (مهارات، وظائف، شركات، إلخ).
 3. **المطابقة (Matching):** مقارنة المهارات المستخرجة مع وظائف معتمدة في O*NET.
@@ -61,8 +59,7 @@
 
 ### 1. تحميل المشروع
 ```bash
-git clone [https://github.com/TasKid32/viora_Application.git](https://github.com/TasKid32/viora_Application.git)
-cd Viora_app
+git clone https://github.com/TasKid32/viora_Application.git
 
 ```
 ### 2. إعداد الباك اند (Backend)
@@ -92,14 +89,8 @@ flutter gen-l10n
 flutter run --dart-define=API_URL=http://YOUR_IP:8000
 
 ```
-## 🌐 الربط والبيئة (Environment)
-يجب إعداد ملف .env في مجلد الباك اند وإضافة المفاتيح التالية:
- * GEMINI_API_KEY: لتفعيل المساعد الذكي.
- * YOUTUBE_API_KEY: لجلب فيديوهات المسار التعليمي.
- * SECRET_KEY: لتأمين تشفير البيانات والتوكنز.
 ## 🔒 الأمن والخصوصية
  * **خصوصية البيانات:** يتم تحليل السير الذاتية محلياً دون إرسالها لأي طرف ثالث.
  * **التشفير:** استخدام Bcrypt لتشفير كلمات المرور وJWT لتأمين الجلسات.
  * **إدارة الجلسات:** استخدام Access و Refresh tokens لضمان حماية المستخدم.
 **الإصدار:** 1.0.0 | **الحالة:** مشروع تخرج - المرحلة الثانية | **تاريخ التحديث:** أبريل 2026
-```
