@@ -47,8 +47,6 @@ The project is organized into three main components:
 ## 🔄 AI Analysis Pipeline
 Viora utilizes a high-speed pipeline ensuring analysis results in under **200ms**:
 
-![NER Inference Pipeline for Resume Analysis](ml/viora-ner/docs/pipeline_diagram.png)
-
 1. **Extraction:** Converts uploaded CVs into clean, processable text.
 2. **NER Engine:** Classifies text into 8 categories (Skills, Titles, Orgs, etc.).
 3. **Matching:** Maps extracted skills to 1016 O*NET-certified occupations.
