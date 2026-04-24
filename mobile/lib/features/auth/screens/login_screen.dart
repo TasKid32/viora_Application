@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             return l10n.pleaseEnterValidEmail;
                           }
                           return null;
-                        },
+                        }, errorMaxLines: 2,
                       ),
                       const SizedBox(height: 16),
 
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           if (v.length < 6) return l10n.passwordMinLength;
                           return null;
-                        },
+                        }, errorMaxLines: 2,
                       ),
                       const SizedBox(height: 12),
 

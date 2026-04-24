@@ -150,7 +150,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               if (v == null || v.isEmpty) return l10n.pleaseEnterEmail;
               if (!v.contains('@')) return l10n.pleaseEnterValidEmail;
               return null;
-            },
+            }, errorMaxLines: 2,
           ),
           const SizedBox(height: 32),
 

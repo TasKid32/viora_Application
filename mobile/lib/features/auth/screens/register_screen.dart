@@ -124,6 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               error,
                               style: AppTextStyles.bodySmall.copyWith(
                                 color: AppColors.error,
+          
                               ),
                             ),
                           );
@@ -137,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hint: l10n.fullNameHint,
                         icon: Icons.person_outline,
                         validator: (v) =>
-                            (v == null || v.isEmpty) ? l10n.pleaseEnterName : null,
+                            (v == null || v.isEmpty) ? l10n.pleaseEnterName : null, errorMaxLines: 2,
                       ),
                       const SizedBox(height: 14),
 
@@ -152,7 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           if (v == null || v.isEmpty) return l10n.pleaseEnterEmail;
                           if (!v.contains('@')) return l10n.pleaseEnterValidEmail;
                           return null;
-                        },
+                        }, errorMaxLines: 2,
                       ),
                       const SizedBox(height: 14),
 
@@ -179,12 +180,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             return l10n.pleaseEnterPassword;
                           }
                           // Minimum 8 characters, at least one uppercase letter, one lowercase letter and one number,
-                          if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d) (?=.*[!@#$%^&*])').hasMatch(v)) {
+                          if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])').hasMatch(v)) {
                             return l10n.passwordMinLength;
                           } 
                           return null;
 
-                        },
+                        }, errorMaxLines: 2,
                       ),
                       const SizedBox(height: 14),
 
@@ -214,7 +215,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             return l10n.passwordsDoNotMatch;
                           }
                           return null;
-                        },
+                        }, errorMaxLines: 4,
                       ),
                       const SizedBox(height: 28),
 

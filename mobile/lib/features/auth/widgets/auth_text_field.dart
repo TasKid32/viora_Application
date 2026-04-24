@@ -22,7 +22,7 @@ class AuthTextField extends StatelessWidget {
     this.obscure = false,
     this.suffixIcon,
     this.keyboardType,
-    this.validator,
+    this.validator, required int errorMaxLines,
   });
 
   @override
@@ -39,6 +39,7 @@ class AuthTextField extends StatelessWidget {
           validator: validator,
           style: AppTextStyles.body,
           decoration: InputDecoration(
+            errorMaxLines: 4,
             hintText: hint,
             prefixIcon: Icon(icon, color: AppColors.primary, size: 20),
             suffixIcon: suffixIcon,
