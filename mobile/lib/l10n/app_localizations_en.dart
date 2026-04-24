@@ -55,7 +55,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterPassword => 'Please enter your password';
 
   @override
-  String get passwordMinLength => 'Password must be at least 6 characters';
+  String get passwordMinLength =>
+      'Password must be at least 8 characters, including an uppercase letter, a lowercase letter, a number, and a special character';
 
   @override
   String get joinViora => 'Join viora';

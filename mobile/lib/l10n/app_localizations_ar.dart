@@ -54,7 +54,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pleaseEnterPassword => 'يرجى إدخال كلمة المرور';
 
   @override
-  String get passwordMinLength => 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+  String get passwordMinLength =>
+      'يجب أن تحتوي كلمة المرور على 8 خانات، تشمل حرفاً كبيراً، وصغيراً، ورقماً، ورمزاً خاصاً';
 
   @override
   String get joinViora => 'انضم إلى فيورا';
