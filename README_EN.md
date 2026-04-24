@@ -47,8 +47,6 @@ The project is organized into three main components:
 ## 🔄 AI Analysis Pipeline
 Viora utilizes a high-speed pipeline ensuring analysis results in under **200ms**:
 
-![NER Inference Pipeline for Resume Analysis](ml/viora-ner/docs/pipeline_diagram.png)
-
 1. **Extraction:** Converts uploaded CVs into clean, processable text.
 2. **NER Engine:** Classifies text into 8 categories (Skills, Titles, Orgs, etc.).
 3. **Matching:** Maps extracted skills to 1016 O*NET-certified occupations.
@@ -60,8 +58,7 @@ Viora utilizes a high-speed pipeline ensuring analysis results in under **200ms*
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/TasKid32/viora_Application.git](https://github.com/TasKid32/viora_Application.git)
-cd Viora_app
+git clone https://github.com/TasKid32/viora_Application.git
 
 ```
 ### 2. Backend Setup
@@ -91,11 +88,7 @@ flutter gen-l10n
 flutter run --dart-define=API_URL=http://YOUR_IP:8000
 
 ```
-## 🌐 Connection & Environment
-Configure your .env file in the backend directory with these keys:
- * GEMINI_API_KEY: Required for the Smart Assistant.
- * YOUTUBE_API_KEY: For educational video resources.
- * SECRET_KEY: For JWT signing and data security.
+
 ## 🔒 Security & Privacy
  * **Data Privacy:** CVs are analyzed locally; no personal data is sent to 3rd party analysis APIs.
  * **Encryption:** Bcrypt for password hashing and secure JWT session management.
