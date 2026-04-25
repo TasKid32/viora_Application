@@ -38,8 +38,8 @@ sentence-transformers==5.3.0
 numpy==2.3.5
 
 # === NLP — Linguistic Analysis (proficiency scoring) ===
-spacy==3.7.4
-en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz
+#spacy==3.7.4
+#en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz
 
 # === HTTP Client ===
 requests==2.32.5
