@@ -128,7 +128,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             backgroundImage: data.avatarUrl != null &&
                     data.avatarUrl!.isNotEmpty
                 ? NetworkImage(
-                    "${Environment.apiBaseUrl}${data.avatarUrl}") //Add avatar URL prefix
+                    "${Environment.apiBaseU}${data.avatarUrl}") //Add avatar URL prefix
                 : null,
             child: data.avatarUrl == null || data.avatarUrl!.isEmpty
                 ? Text(
@@ -143,28 +143,55 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
         const SizedBox(width: 14),
 
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '${l10n.welcomeBack} 👋',
-                style: AppTextStyles.h3.copyWith(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                data.userName,
-                style: AppTextStyles.h2.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
+       Expanded(
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+    
+      Row(
+        children: [
+          Text(
+            '${l10n.welcomeBack} ',
+            style: AppTextStyles.h3.copyWith(
+              color: AppColors.primary,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
+          const SizedBox(width: 1),
+          ShaderMask(
+            shaderCallback: (bounds) => LinearGradient(
+              colors: [
+                Color(0xFF8E24AA), // Purple
+                Color(0xFFE91E63), // Pink
+                Color(0xFFF48FB1), // Light Pink
+              ],
+            ).createShader(bounds),
+            child: Text(
+              l10n.viora,
+              style: AppTextStyles.h3.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+         Text(
+       '👋',
+        style: AppTextStyles.h3.copyWith(fontWeight: FontWeight.bold),
+      ),  
+        ],
+      ),
+  
+      const SizedBox(height: 4),
 
+      Text(
+        data.userName,
+        style: AppTextStyles.h2.copyWith(
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ],
+  ),
+),
         // Notifications badge (بدون تغيير)
         Stack(
           children: [

@@ -446,7 +446,7 @@ class _AvatarHero extends StatelessWidget {
                     radius: 46,
                     backgroundColor: AppColors.primaryContainer,
                     backgroundImage: avatarUrl != null && avatarUrl!.isNotEmpty
-                        ? NetworkImage("${Environment.apiBaseUrl}$avatarUrl")
+                        ? NetworkImage("${Environment.apiBaseU}$avatarUrl")
                         : null,
                     child: avatarUrl == null || avatarUrl!.isEmpty
                         ? Text(initial,

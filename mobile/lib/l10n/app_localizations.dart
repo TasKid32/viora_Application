@@ -125,8 +125,14 @@ abstract class AppLocalizations {
   /// No description provided for @welcomeBack.
   ///
   /// In en, this message translates to:
-  /// **'Welcome To VIORA'**
+  /// **'Welcome To'**
   String get welcomeBack;
+
+  /// No description provided for @viora.
+  ///
+  /// In en, this message translates to:
+  /// **'Viora'**
+  String get viora;
 
   /// No description provided for @signInToContinue.
   ///

@@ -36,7 +36,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 class Base(DeclarativeBase):
     """SQLAlchemy 2.0 declarative base class."""
     pass
-
+from app.db import models # Ensure models are registered before creating tables
+Base.metadata.create_all(bind=engine)
 
 def get_db():
     """Yield a database session; auto-closes on exit."""

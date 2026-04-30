@@ -3,7 +3,6 @@ Database initialization and migration script.
 Uses structured logging instead of print().
 """
 from sqlalchemy import inspect, text
-
 from app.db.database import engine, Base
 from app.db import models
 from app.core.config import settings

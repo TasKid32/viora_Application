@@ -22,7 +22,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get getStarted => 'Get Started';
 
   @override
-  String get welcomeBack => 'Welcome To VIORA';
+  String get welcomeBack => 'Welcome To';
+
+  @override
+  String get viora => 'Viora';
 
   @override
   String get signInToContinue => 'Sign in to continue';

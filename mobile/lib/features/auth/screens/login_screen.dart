@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Form(
                   key: _formKey,
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       const SizedBox(height: 40),
 
                       // Logo
@@ -84,14 +84,43 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 24),
 
                       // Title
-                      Text(
-                        l10n.welcomeBack,
-                        style: AppTextStyles.h1.copyWith(
-                          color: AppColors.primary,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
+                      Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                       children: [
+    // Welcome To
+    Text(
+      AppLocalizations.of(context)!.welcomeBack,
+      style: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        color: AppColors.primary,
+      ),
+    ),
 
+    const SizedBox(width: 6),
+
+    // VIORA (Gradient)
+    ShaderMask(
+      shaderCallback: (bounds) => LinearGradient(
+        colors: [
+          Color(0xFF8E24AA), // Purple
+          Color(0xFFE91E63), // Pink
+          Color(0xFFF48FB1), // Light Pink
+        ],
+      ).createShader(bounds),
+      child: Text(
+        AppLocalizations.of(context)!.viora,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    ),
+  ],
+),
+                          
                       Text(
                         l10n.signInToContinue,
                         style: AppTextStyles.body.copyWith(

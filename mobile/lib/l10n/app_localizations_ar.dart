@@ -21,7 +21,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get getStarted => 'ابدأ الآن';
 
   @override
-  String get welcomeBack => 'مرحباً بك في فيورا ';
+  String get welcomeBack => 'مرحباً بك في  ';
+
+  @override
+  String get viora => 'فيورا';
 
   @override
   String get signInToContinue => 'سجل الدخول للمتابعة';

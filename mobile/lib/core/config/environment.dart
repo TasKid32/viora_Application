@@ -6,13 +6,17 @@ class Environment {
 
   static const String _buildTimeApiUrl = String.fromEnvironment(
     'API_URL',
-    defaultValue: 'http://10.0.2.2:8000',
-    
+    defaultValue: 'http://192.168.0.114:8000',
   );
 
   static const bool isDevelopment = !kReleaseMode;
 
-  static String get apiBaseUrl => isDevelopment ? _buildTimeApiUrl : 'https://api.viora.com';
+  static String get apiBaseUrl =>
+      isDevelopment ? _buildTimeApiUrl : 'https://api.viora.com';
+
+//API Configuration for Avatar
+  static const String apiBaseU =
+      'http://192.168.0.114:8000'; //Replace with your actual API base URL for avatar
 
   /// Timeouts in seconds.
   static const int connectTimeout = 15;
