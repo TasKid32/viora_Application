@@ -10,7 +10,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
-
+#form app.routers import users
 from app.api.v1 import auth, resume, dashboard, progress, notifications, chat, profile, roadmap, courses
 from app.core.config import settings
 from app.core.logging import get_logger
@@ -155,6 +155,7 @@ ALLOWED_ORIGINS = (
     ]
 )
 
+ 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
@@ -173,6 +174,7 @@ app.include_router(roadmap.router, prefix="/api/roadmap", tags=["Learning Roadma
 app.include_router(chat.router, prefix="/api/chat", tags=["AI Assistant"])
 app.include_router(profile.router, prefix="/api/profile", tags=["Profile"])
 app.include_router(courses.router, prefix="/api/courses", tags=["Courses"])
+#app.include_router(app.routers.users.router, prefix="/api/users", tags=["Users"])
 
 # Serve uploaded files (avatars, etc.) — creates dir if needed
 import os as _os

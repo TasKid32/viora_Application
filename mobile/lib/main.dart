@@ -27,57 +27,19 @@ import 'features/notifications/provider/notification_provider.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // P2: Global error handler — catches widget build/layout/paint errors
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
-    debugPrint('\u274c [FlutterError] ${details.exceptionAsString()}');
+    debugPrint('❌ ${details.exceptionAsString()}');
   };
 
-  // P3: Custom error widget — show a friendly card instead of red crash screen
-  ErrorWidget.builder = (FlutterErrorDetails details) {
-    return Material(
-      color: Colors.transparent,
-      child: Center(
-        child: Container(
-          margin: const EdgeInsets.all(24),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: const Color(0xFFE53935), width: 1.5),
-          ),
-          child: const Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.warning_amber_rounded, size: 40, color: Color(0xFFE53935)),
-              SizedBox(height: 12),
-              Text(
-                'Something went wrong',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(height: 4),
-              Text(
-                'Please restart the app or try again',
-                style: TextStyle(fontSize: 13, color: Colors.grey),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  };
-
-  // P2b: Catch unhandled async errors (platform channel errors, etc.)
   PlatformDispatcher.instance.onError = (error, stack) {
-    debugPrint('\u274c [PlatformError] $error');
-    return true; // Handled — prevent crash
+    debugPrint('❌ $error');
+    return true;
   };
 
   runApp(const AppLoader());
 }
 
-/// Wrapper that initializes services, showing a branded loading screen,
-/// then builds the real VioraApp once everything is ready.
 class AppLoader extends StatefulWidget {
   const AppLoader({super.key});
 
@@ -87,6 +49,7 @@ class AppLoader extends StatefulWidget {
 
 class _AppLoaderState extends State<AppLoader>
     with SingleTickerProviderStateMixin {
+
   bool _ready = false;
 
   late final AnimationController _pulseCtrl;
@@ -102,20 +65,29 @@ class _AppLoaderState extends State<AppLoader>
   void initState() {
     super.initState();
 
-    // Pulse animation for the logo (continuous breathing)
+    // Logo breathing animation
     _pulseCtrl = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1400),
     );
-    _pulseAnimation = Tween<double>(begin: 0.88, end: 1.0).animate(
-      CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut),
+
+    _pulseAnimation = Tween<double>(
+      begin: 0.92,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _pulseCtrl,
+        curve: Curves.easeInOut,
+      ),
     );
+
     _pulseCtrl.repeat(reverse: true);
 
     _init();
   }
 
   Future<void> _init() async {
+
     _tokenManager = TokenManager();
     _localeProvider = LocaleProvider();
 
@@ -125,15 +97,17 @@ class _AppLoaderState extends State<AppLoader>
     ]);
 
     _apiClient = ApiClient(_tokenManager);
-    _authNotifier = AuthStateNotifier(_tokenManager.isAuthenticated);
+
+    _authNotifier =
+        AuthStateNotifier(_tokenManager.isAuthenticated);
 
     _apiClient.onForceLogout = () {
       _authNotifier.isAuthenticated = false;
     };
 
-    _router = createRouter(authNotifier: _authNotifier);
-
-    if (mounted) setState(() => _ready = true);
+    _router = createRouter(
+      authNotifier: _authNotifier,
+    );
   }
 
   @override
@@ -144,11 +118,14 @@ class _AppLoaderState extends State<AppLoader>
 
   @override
   Widget build(BuildContext context) {
+
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 600),
-      switchInCurve: Curves.easeOut,
-      switchOutCurve: Curves.easeIn,
+      duration: const Duration(milliseconds: 700),
+
       child: _ready
+
+          // ================= MAIN APP =================
+
           ? VioraApp(
               key: const ValueKey('app'),
               tokenManager: _tokenManager,
@@ -157,71 +134,223 @@ class _AppLoaderState extends State<AppLoader>
               router: _router,
               localeProvider: _localeProvider,
             )
+
+          // ================= SPLASH SCREEN =================
+
           : MaterialApp(
-              key: const ValueKey('splash'),
               debugShowCheckedModeBanner: false,
               theme: AppTheme.light,
+
               home: Scaffold(
-                backgroundColor: AppColors.background,
+                backgroundColor: Colors.white,
+
                 body: SafeArea(
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Logo — ClipOval removes the square background edge
-                        ScaleTransition(
-                          scale: _pulseAnimation,
-                          child: Container(
-                            width: 140,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.primary.withValues(alpha: 0.12),
-                                  blurRadius: 30,
-                                  offset: const Offset(0, 8),
+                  child: Container(
+
+                    // Background gradient
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.white,
+                          Color(0xFFF8F1FF),
+                          Color(0xFFFDFBFF),
+                        ],
+                      ),
+                    ),
+
+                    child: Center(
+                      child: AnimatedSlide(
+                        duration:
+                            const Duration(milliseconds: 900),
+
+                        curve: Curves.easeOutBack,
+
+                        offset: const Offset(0, 0),
+
+                        child: AnimatedOpacity(
+                          duration:
+                              const Duration(milliseconds: 1200),
+
+                          opacity: 1,
+
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+
+                              // ================= LOGO =================
+
+                              ScaleTransition(
+                                scale: _pulseAnimation,
+
+                                child: Container(
+                                  width: 160,
+                                  height: 160,
+
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.primary
+                                            .withValues(alpha: 0.18),
+
+                                        blurRadius: 40,
+                                        offset:
+                                            const Offset(0, 10),
+                                      ),
+                                    ],
+                                  ),
+
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      'assets/logo.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
-                              ],
-                            ),
-                            child: ClipOval(
-                              child: Image.asset(
-                                'assets/logo.png',
-                                fit: BoxFit.cover,
-                                width: 140,
-                                height: 140,
                               ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
 
-                        // App name — heroGradient for brand consistency
-                        ShaderMask(
-                          shaderCallback: (bounds) =>
-                              AppColors.heroGradient.createShader(bounds),
-                          child: const Text(
-                            'Viora',
-                            style: TextStyle(
-                              fontSize: 34,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white,
-                              letterSpacing: 1.5,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 32),
+                              const SizedBox(height: 28),
 
-                        // Loading spinner — no text, spinner is sufficient
-                        SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.5,
-                            color: AppColors.primary.withValues(alpha: 0.6),
+                              // ================= APP NAME =================
+
+                              RichText(
+                                text: const TextSpan(
+                                  children: [
+
+                                    // vio
+                                    TextSpan(
+                                      text: 'vio',
+                                      style: TextStyle(
+                                        fontSize: 58,
+                                        fontWeight:
+                                            FontWeight.w900,
+                                        color:
+                                            Color(0xFF7B2CFF),
+                                        letterSpacing: -2,
+                                      ),
+                                    ),
+
+                                    // ra
+                                    TextSpan(
+                                      text: 'ra',
+                                      style: TextStyle(
+                                        fontSize: 58,
+                                        fontWeight:
+                                            FontWeight.w900,
+                                        color:
+                                            Color(0xFFFF4FB3),
+                                        letterSpacing: -2,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              const SizedBox(height: 18),
+
+                              // ================= SLOGAN =================
+
+                              Text(
+                                'Together, we shape your future.',
+
+                                style: TextStyle(
+                                  fontSize: 17,
+
+                                  color: AppColors.primary
+                                      .withValues(alpha: 0.55),
+
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+
+                              const SizedBox(height: 65),
+
+                              // ================= BUTTON =================
+
+                              Container(
+                                width: 250,
+                                height: 58,
+
+                                decoration: BoxDecoration(
+                                  gradient:
+                                      AppColors.heroGradient,
+
+                                  borderRadius:
+                                      BorderRadius.circular(40),
+
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.primary
+                                          .withValues(alpha: 0.25),
+
+                                      blurRadius: 20,
+
+                                      offset:
+                                          const Offset(0, 8),
+                                    ),
+                                  ],
+                                ),
+
+                                child: ElevatedButton(
+                                  style:
+                                      ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Colors.transparent,
+
+                                    shadowColor:
+                                        Colors.transparent,
+
+                                    shape:
+                                        RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(
+                                              40),
+                                    ),
+                                  ),
+
+                                  onPressed: () {
+                                    setState(
+                                      () => _ready = true,
+                                    );
+                                  },
+
+                                  child: const Text(
+                                    'Get Started',
+
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight:
+                                          FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              const SizedBox(height: 120),
+
+                              // ================= FOOTER =================
+
+                              Text(
+                                'Developed by Viora Team - Al-Jouf University ©2026',
+
+                                textAlign: TextAlign.center,
+
+                                style: TextStyle(
+                                  fontSize: 12,
+
+                                  color: const Color.fromARGB(255, 0, 0, 0)
+                                      .withValues(alpha: 0.35),
+
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -232,6 +361,7 @@ class _AppLoaderState extends State<AppLoader>
 }
 
 class VioraApp extends StatelessWidget {
+
   final TokenManager tokenManager;
   final ApiClient apiClient;
   final AuthStateNotifier authNotifier;
@@ -249,9 +379,14 @@ class VioraApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: localeProvider),
+
+        ChangeNotifierProvider.value(
+          value: localeProvider,
+        ),
+
         ChangeNotifierProvider(
           create: (_) => AuthProvider(
             api: AuthApi(apiClient),
@@ -259,33 +394,61 @@ class VioraApp extends StatelessWidget {
             authNotifier: authNotifier,
           ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => AnalysisProvider(api: AnalysisApi(apiClient)),
+          create: (_) => AnalysisProvider(
+            api: AnalysisApi(apiClient),
+          ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => DashboardProvider(api: DashboardApi(apiClient)),
+          create: (_) => DashboardProvider(
+            api: DashboardApi(apiClient),
+          ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => RoadmapProvider(api: RoadmapApi(apiClient)),
+          create: (_) => RoadmapProvider(
+            api: RoadmapApi(apiClient),
+          ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => ChatProvider(api: ChatApi(apiClient)),
+          create: (_) => ChatProvider(
+            api: ChatApi(apiClient),
+          ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => ProfileProvider(api: apiClient),
+          create: (_) => ProfileProvider(
+            api: apiClient,
+          ),
         ),
+
         ChangeNotifierProvider(
-          create: (_) => NotificationProvider(api: NotificationApi(apiClient)),
+          create: (_) => NotificationProvider(
+            api: NotificationApi(apiClient),
+          ),
         ),
       ],
+
       child: Consumer<LocaleProvider>(
         builder: (_, locale, __) => MaterialApp.router(
+
           title: 'Viora',
           debugShowCheckedModeBanner: false,
+
           theme: AppTheme.light,
+
           routerConfig: router,
+
           locale: locale.locale,
-          supportedLocales: const [Locale('en'), Locale('ar')],
+
+          supportedLocales: const [
+            Locale('en'),
+            Locale('ar'),
+          ],
+
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
